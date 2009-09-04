@@ -45,23 +45,24 @@
 %  To define a "library" path for your projects, edit and uncomment the
 %  following lines (the library path must end with a slash character):
 
-%  For back-end Prolog compilers supporting multifile predicates:
+:- if(current_logtalk_flag(multifile_directive, supported)).
 
-:- multifile(logtalk_library_path/2).
-:- dynamic(logtalk_library_path/2).
+	%  For back-end Prolog compilers supporting multifile predicates:
+	:- multifile(logtalk_library_path/2).
+	:- dynamic(logtalk_library_path/2).
 
-logtalk_library_path(lflat_home, '$HOME/lflat-development/').
-logtalk_library_path(lflat_examples, lflat_home('examples/')).
+	logtalk_library_path(lflat_home, '$HOME/lflat/').
+	logtalk_library_path(lflat_examples, lflat_home('examples/')).
 
+:- else.
 
-%  For back-end Prolog compilers that don't support multifile predicates:
-/*
-:- initialization((
-	assertz(logtalk_library_path(my_project_1, '$HOME/my_project_1/')),
-	assertz(logtalk_library_path(my_project_2, '$HOME/my_project_2/'))
-)).
-*/
+	%  For back-end Prolog compilers that don't support multifile predicates:
+	:- initialization((
+		assertz(logtalk_library_path(lflat_home, '$HOME/lflat/')),
+		assertz(logtalk_library_path(lflat_examples, lflat_home('examples/')))
+	)).
 
+:- endif.
 
 %  To make Logtalk completely silent for batch processing uncomment the
 %  following lines:
