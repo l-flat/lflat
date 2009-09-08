@@ -1,4 +1,4 @@
-% Slide 82: a non-deterministic automaton with lamda transitions
+% Slide 82: a non-deterministic automaton with lambda transitions
 
 :- object(abL82,
 	instantiates(language)).
@@ -20,9 +20,9 @@
 
 	negative([]).
 	negative([b,a]).
-	
-	negative([b,b,b,b,b]).  %This should give an error on the test mechanism of abFA82 below
-	
+
+	negative([b,b,b,b,b]).	% this should give an error on the test mechanism of abFA82 below
+
 
 :- end_object.
 
