@@ -13,6 +13,7 @@
 
 
 % some handy shortcuts to run the L-FLAT provided examples:
+% (examples are located in the $HOME/lflat/examples directory)
 
 run_example(Example) :-
 	interaction::run_example(Example).
