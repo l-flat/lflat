@@ -1,3 +1,4 @@
 #summary Demo Mooshak contest
 
-A demo contest, named L-FLAT Demo, consisting of 10 problems is running here: http://193.136.122.87/~mooshak/cgi-bin/execute?command=team&contest=2009-lflat-demo
+A demo contest, named L-FLAT Demo, consisting of 10 problems is running here:
+http://193.136.122.87/~mooshak/cgi-bin/execute?command=team&contest=2009-lflat-demo
