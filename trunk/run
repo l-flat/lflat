@@ -1,0 +1,14 @@
+#/bin/bash
+
+if ! test "$LOGTALKHOME"
+then
+	export LOGTALKHOME=/usr/share/logtalk
+fi
+
+if ! test "$LOGTALKUSER"
+then
+    export LOGTALKUSER="$HOME"/logtalk
+fi
+
+swilgt -q -g "set_logtalk_flag(startup_message, banner), set_logtalk_flag(report, off), {loader}"
+
