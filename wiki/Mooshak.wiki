@@ -1,7 +1,3 @@
-#summary Demo contest
+#summary Demo Mooshak contest
 
-= Details =
-
-A demo contest, named L-FLAT Demo, consisting of 10 problems is running here:
-
-http://193.136.122.87/~mooshak
+A demo contest, named L-FLAT Demo, consisting of 10 problems is running here: http://193.136.122.87/~mooshak
