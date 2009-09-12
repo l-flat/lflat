@@ -12,7 +12,7 @@
 )).
 
 
-% some handy shortcuts to run L-FLAT examples:
+% some handy shortcuts to run the L-FLAT provided examples:
 
 run_example(Example) :-
 	interaction::run_example(Example).
