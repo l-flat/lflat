@@ -200,6 +200,11 @@ RE, MIX. MIX is yet to be implemented.
 		date is 2009/08/15,
 		comment is 'Predicates for command-line user interaction.']).
 
+	:- public(banner/0).
+	:- mode(banner, one).
+	:- info(banner/0, [
+		comment is 'Prints the L-FLAT banner.']).
+
 	:- public(run_example/1).
 	:- mode(run_example(+atom), one).
 	:- info(run_example/1, [
@@ -211,6 +216,13 @@ RE, MIX. MIX is yet to be implemented.
 	:- info(run_examples/1, [
 		comment is 'Loads and runs a list of examples.',
 		argnames is ['Examples']]).
+
+	banner :-
+		current_logtalk_flag(startup_message,banner)
+		->
+		write('L-FLAT 2.0 - the Logtalk Formal Language and Automata Toolkit'), nl,
+		write('Copyright (c) 2005-2009 A. Miguel Dias, Paulo Moura, Michel Wermelinger'), nl,
+		nl.
 
 	run_example(Example) :-
 		logtalk_load(lflat_examples(Example), [hook(hook)]).
@@ -3423,12 +3435,12 @@ RE, MIX. MIX is yet to be implemented.
 
 	compile(Submission, _) :-
 		::setup,
-		logtalk_compile(Submission),	% just for syntax checking
+		logtalk_load(Submission, [hook(hook)]), % just for syntax checking
 		halt.
 
 	execute(Submission, Test) :-
 		::setup,
-		[Submission],					% loads the submission
+		logtalk_load(Submission, [hook(hook)]), % loads the submission
 		logtalk_load(Test),				% and runs one input test over it
 		halt.
 
