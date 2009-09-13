@@ -220,7 +220,7 @@ RE, MIX. MIX is yet to be implemented.
 	banner :-
 		(	current_logtalk_flag(startup_message, banner) ->
 			write('L-FLAT 2.0 - the Logtalk Formal Language and Automata Toolkit'), nl,
-			write('Copyright (c) 2005-2009 A. Miguel Dias, Paulo Moura, Michel Wermelinger'), nl,
+			write('Copyright (c) 2005-2009 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl,
 			nl
 		;	true
 		).
@@ -3461,10 +3461,28 @@ RE, MIX. MIX is yet to be implemented.
 		version is 2.0,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
 		date is 2009/08/15,
-		comment is 'Alphabet represented as a parametric object.']).
+		comment is 'Alphabet represented as a parametric object.',
+		parnames is ['Expression']]).
 
 	expression(Expression) :-
 		parameter(1, Expression).
+
+:- end_object.
+
+
+
+:- object(alphabet(_Id, _Expression),
+	instantiates(alphabet)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Alphabet represented as a parametric object.',
+		parnames is ['Id', 'Expression']]).
+
+	expression(Expression) :-
+		parameter(2, Expression).
 
 :- end_object.
 
@@ -3477,13 +3495,34 @@ RE, MIX. MIX is yet to be implemented.
 		version is 2.0,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
 		date is 2009/08/15,
-		comment is 'Total order over an alphabet represented as a parametric object.']).
+		comment is 'Total order over an alphabet represented as a parametric object.',
+		parnames is ['Alphabet', 'Sequence']]).
 
 	alphabet(Expression) :-
 		parameter(1, Expression).
 
 	sequence(Sequence) :-
 		parameter(2, Sequence).
+
+:- end_object.
+
+
+
+:- object(order(_Id, _Alphabet, _Sequence),
+	instantiates(order)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Total order over an alphabet represented as a parametric object.',
+		parnames is ['Id', 'Alphabet', 'Sequence']]).
+
+	alphabet(Expression) :-
+		parameter(2, Expression).
+
+	sequence(Sequence) :-
+		parameter(3, Sequence).
 
 :- end_object.
 
@@ -3504,18 +3543,39 @@ RE, MIX. MIX is yet to be implemented.
 	alphabet(Alphabet) :-
 		parameter(1, Alphabet).
 
-	positives(Positives) :-
-		parameter(2, Positives).
-
-	negatives(Negatives) :-
-		parameter(3, Negatives).
-
 	positive(Positive) :-
 		parameter(2, Positives),
 		member(Positive, Positives).
 
 	negative(Negative) :-
 		parameter(3, Negatives),
+		member(Negative, Negatives).
+
+:- end_object.
+
+
+
+:- object(language(_Id, _Alphabet, _Positives, _Negatives),
+	instantiates(language)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Language represented as a parametric object.',
+		parnames is ['Id', 'Alphabet', 'Positives', 'Negatives']]).
+
+	:- uses(list, [member/2]).
+
+	alphabet(Alphabet) :-
+		parameter(2, Alphabet).
+
+	positive(Positive) :-
+		parameter(3, Positives),
+		member(Positive, Positives).
+
+	negative(Negative) :-
+		parameter(4, Negatives),
 		member(Negative, Negatives).
 
 :- end_object.
@@ -3534,6 +3594,23 @@ RE, MIX. MIX is yet to be implemented.
 
 	expression(Expression) :-
 		parameter(1, Expression).
+
+:- end_object.
+
+
+
+:- object(re(_Id, _Expression),
+	instantiates(re)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Regular expression represented as a parametric object.',
+		parnames is ['Id', 'Expression']]).
+
+	expression(Expression) :-
+		parameter(2, Expression).
 
 :- end_object.
 
@@ -3562,6 +3639,29 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(fa(_Id, _Initial, _Transitions, _Finals),
+	instantiates(fa)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Finite automata represented as a parametric object.',
+		parnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
+
+	initial(Initial) :-
+		parameter(2, Initial).
+
+	transitions(Transitions) :-
+		parameter(3, Transitions).
+
+	finals(Finals) :-
+		parameter(4, Finals).
+
+:- end_object.
+
+
+
 :- object(cfg(_StartSymbol, _Rules),
 	instantiates(cfg)).
 
@@ -3577,6 +3677,26 @@ RE, MIX. MIX is yet to be implemented.
 
 	rules(Rules) :-
 		parameter(2, Rules).
+
+:- end_object.
+
+
+
+:- object(cfg(_Id, _StartSymbol, _Rules),
+	instantiates(cfg)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Context-free grammar represented as a parametric object.',
+		parnames is ['Id', 'StartSymbol', 'Rules']]).
+
+	start_symbol(StartSymbol) :-
+		parameter(2, StartSymbol).
+
+	rules(Rules) :-
+		parameter(3, Rules).
 
 :- end_object.
 
@@ -3608,6 +3728,32 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(pda(_Id, _Initial, _InitialStackSymbol, _Transitions, _Finals),
+	instantiates(pda)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Pushdown automaton represented as a parametric object.',
+		parnames is ['Id', 'Initial', 'InitialStackSymbol', 'Transitions', 'Finals']]).
+
+	initial(Initial) :-
+		parameter(2, Initial).
+
+	initial_stack_symbol(InitialStackSymbol) :-
+		parameter(3, InitialStackSymbol).
+
+	transitions(Transitions) :-
+		parameter(4, Transitions).
+
+	finals(Finals) :-
+		parameter(5, Finals).
+
+:- end_object.
+
+
+
 :- object(tm(_Initial, _Transitions, _Finals),
 	instantiates(tm)).
 
@@ -3626,5 +3772,28 @@ RE, MIX. MIX is yet to be implemented.
 
 	finals(Finals) :-
 		parameter(3, Finals).
+
+:- end_object.
+
+
+
+:- object(tm(_Id, _Initial, _Transitions, _Finals),
+	instantiates(tm)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Turing machine represented as a parametric object.',
+		parnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
+
+	initial(Initial) :-
+		parameter(2, Initial).
+
+	transitions(Transitions) :-
+		parameter(3, Transitions).
+
+	finals(Finals) :-
+		parameter(4, Finals).
 
 :- end_object.
