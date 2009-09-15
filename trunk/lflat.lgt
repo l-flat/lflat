@@ -488,6 +488,12 @@ RE, MIX. MIX is yet to be implemented.
 		comment is 'The first alphabet contains the symbols of the second alphabet.',
 		argnames is ['Alphabet1', 'Alphabet2']]).
 
+	:- public(new/2).
+	:- mode(new(?object_identifier, +nonvar), one).
+	:- info(new/2, [
+		comment is 'Creates a new alphabet.',
+		argnames is ['Id', 'Expression']]).
+
 	equal(Alphabet1, Alphabet2) :-
 		alphabet(Alphabet1)::symbols(Symbols),
 		alphabet(Alphabet2)::symbols(Symbols).
@@ -496,6 +502,10 @@ RE, MIX. MIX is yet to be implemented.
 		alphabet(Alphabet1)::symbols(Symbols1),
 		alphabet(Alphabet2)::symbols(Symbols2),
 		set::subset(Symbols2, Symbols1).
+
+	new(Id, Expression) :-
+		self(Self),
+		create_object(Id, [instantiates(Self)], [], [expression(Expression)]).
 
 :- end_object.
 
@@ -605,9 +615,32 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(meta_order,
+	specializes(class)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Metaclass of order.']).
+
+	:- public(new/3).
+	:- mode(new(?object_identifier, +nonvar, +list), one).
+	:- info(new/3, [
+		comment is 'Creates a new order over an alphabet.',
+		argnames is ['Id', 'Alphabet', 'Sequence']]).
+
+	new(Id, Expression, Sequence) :-
+		self(Self),
+		create_object(Id, [instantiates(Self)], [], [alphabet(Expression), sequence(Sequence)]).
+
+:- end_object.
+
+
+
 :- object(order,
 	implements(comparingp),
-	instantiates(class),
+	instantiates(meta_order),
 	specializes(entity)).
 
 	:- info([
@@ -871,8 +904,36 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(meta_language,
+	specializes(class)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Metaclass of language.']).
+
+	:- public(new/4).
+	:- mode(new(?object_identifier, +nonvar, +list, +list), one).
+	:- info(new/4, [
+		comment is 'Creates a new language.',
+		argnames is ['Id', 'Alphabet', 'Positives', 'Negatives']]).
+
+	:- uses(list, [append/3, member/2]).
+
+	new(Id, Initial, Alphabet, Positives, Negatives) :-
+		self(Self),
+		findall(positive(Positive), member(Positive, Positives), Positives),
+		findall(negative(Negative), member(Negative, Negatives), Negatives),
+		append(Positives, Negatives, Clauses),
+		create_object(Id, [instantiates(Self)], [], Clauses).
+
+:- end_object.
+
+
+
 :- object(language,
-	instantiates(class),
+	instantiates(meta_language),
 	specializes(entity)).
 
 	:- info([
@@ -1259,8 +1320,31 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(meta_re,
+	specializes(class)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Metaclass of re.']).
+
+	:- public(new/2).
+	:- mode(new(?object_identifier, +nonvar), one).
+	:- info(new/2, [
+		comment is 'Creates a new regular expression.',
+		argnames is ['Id', 'Expression']]).
+
+	new(Id, Expression) :-
+		self(Self),
+		create_object(Id, [instantiates(Self)], [], [expression(Expression)]).
+
+:- end_object.
+
+
+
 :- object(re,
-	instantiates(class),
+	instantiates(meta_re),
 	specializes(mechanism)).
 
 	:- info([
@@ -1600,9 +1684,36 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(meta_fa,
+	specializes(class)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Metaclass of fa.']).
+
+	:- public(new/4).
+	:- mode(new(?object_identifier, +nonvar, +list, +list), one).
+	:- info(new/4, [
+		comment is 'Creates a new finite automaton.',
+		argnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
+
+	:- uses(list, [sort/2]).
+
+	new(Id, Initial, Transitions, Finals) :-
+		self(Self),
+		sort(Transitions, OrderedTransitions),
+		sort(Finals, OrderedFinals),
+		create_object(Id, [instantiates(Self)], [], [initial(Initial), transitions(OrderedTransitions), finals(OrderedFinals)]).
+
+:- end_object.
+
+
+
 :- object(fa,
 	implements(deterministicp),
-	instantiates(class),
+	instantiates(meta_fa),
 	specializes(mechanism)).
 
 	:- info([
@@ -2198,8 +2309,34 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(meta_cfg,
+	specializes(class)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Metaclass of cfg.']).
+
+	:- public(new/3).
+	:- mode(new(?object_identifier, +nonvar, +list, +list), one).
+	:- info(new/3, [
+		comment is 'Creates a new context free grammar.',
+		argnames is ['Id', 'StartSymbol', 'Rules']]).
+
+	:- uses(list, [sort/2]).
+
+	new(Id, StartSymbol, Rules) :-
+		self(Self),
+		sort(Rules, OrderedRules),
+		create_object(Id, [instantiates(Self)], [], [start_symbol(StartSymbol), rules(OrderedRules)]).
+
+:- end_object.
+
+
+
 :- object(cfg,
-	instantiates(class),
+	instantiates(meta_cfg),
 	specializes(mechanism)).
 
 	:- info([
@@ -2694,9 +2831,36 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(meta_pda,
+	specializes(class)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Metaclass of pda.']).
+
+	:- public(new/5).
+	:- mode(new(?object_identifier, +nonvar, +nonvar, +list, +list), one).
+	:- info(new/5, [
+		comment is 'Creates a new pushdown automaton.',
+		argnames is ['Id', 'Initial', 'InitialStackSymbol', 'Transitions', 'Finals']]).
+
+	:- uses(list, [sort/2]).
+
+	new(Id, Initial, InitialStackSymbol, Transitions, Finals) :-
+		self(Self),
+		sort(Transitions, OrderedTransitions),
+		sort(Finals, OrderedFinals),
+		create_object(Id, [instantiates(Self)], [], [initial(Initial), initial_stack_symbol(InitialStackSymbol), transitions(OrderedTransitions), finals(OrderedFinals)]).
+
+:- end_object.
+
+
+
 :- object(pda,
 	implements(deterministicp),
-	instantiates(class),
+	instantiates(meta_pda),
 	specializes(mechanism)).
 
 	:- info([
@@ -3075,9 +3239,36 @@ RE, MIX. MIX is yet to be implemented.
 
 
 
+:- object(meta_tm,
+	specializes(class)).
+
+	:- info([
+		version is 2.0,
+		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
+		date is 2009/08/15,
+		comment is 'Metaclass of tm.']).
+
+	:- public(new/4).
+	:- mode(new(?object_identifier, +nonvar, +list, +list), one).
+	:- info(new/4, [
+		comment is 'Creates a new Turing machine.',
+		argnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
+
+	:- uses(list, [sort/2]).
+
+	new(Id, Initial, Transitions, Finals) :-
+		self(Self),
+		sort(Transitions, OrderedTransitions),
+		sort(Finals, OrderedFinals),
+		create_object(Id, [instantiates(Self)], [], [initial(Initial), transitions(OrderedTransitions), finals(OrderedFinals)]).
+
+:- end_object.
+
+
+
 :- object(tm,
 	implements(deterministicp),
-	instantiates(class),
+	instantiates(meta_tm),
 	specializes(mechanism)).
 
 	:- info([
