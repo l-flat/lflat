@@ -2112,6 +2112,87 @@ RE, MIX. MIX is yet to be implemented.
 	% execution paths will start repeating themselves at some point, so they will
 	% be pruned and the word will be accepted or rejected at some point.
 	%
+	
+	% Some code to create a jflap file from a L-Flat FA .	
+	:- public(tojflap/1).
+	:- mode(tojflap(-nonvar), one).
+	:- info(tojflap/1, [
+		comment is 'Create a jff (jflap) file of the fa',
+		argnames is ['filename']]).
+
+	tojflap(File):-
+		open(File, write, Stream),
+		write(Stream, '<?xml version=\"1.0\"?>\n'),
+		write(Stream, '<!--Created with lflat-->\n'),
+		write(Stream, '<structure>\n'),
+		write(Stream, '<type>fa</type>\n'),
+		write(Stream, '<automaton>\n'),
+		::states(S),
+		::initial(I),   %%in L-Flat - it's only one initial state -its not a list .!!
+		::finals(F),
+		wStates(Stream, S,[I],F,0),
+		wTrans(Stream, S),
+		write(Stream, '</automaton>\n'),
+		write(Stream, '</structure>\n'),
+		close(Stream),!.
+
+	:- private(wStates/5).
+
+	wStates(_, [],_,_,_).
+		wStates(Stream, [H|T],I,F,Id) :-
+		write(Stream, '<state id=\"'),
+		write(Stream, Id),
+		write(Stream, '" name=\"'),
+		write(Stream, H),
+		write(Stream, '\">\n'),
+		write(Stream, '<label>'),     
+		write(Stream, H) ,
+		write(Stream, '</label>\n'),
+		( list::member(H,I) -> write(Stream, '<initial />\n'); true),
+		( list::member(H,F) -> write(Stream, '<final />\n');   true),
+		write(Stream, '</state>\n'),
+		ID is Id+1,
+		wStates(Stream, T,I,F,ID).
+
+	%predicate to lookup an element of a list and return its position in the list -1 on fail
+	%on fail with -1 the conversion will just blindly carry on
+	
+	:- private(lookup/3).
+	:- private(d_lookup/4).
+
+	lookup(E,L,N) :- d_lookup(E, L, 0, N).
+
+	d_lookup(_,[],_, N) :- 
+		N is (-1).
+	
+	d_lookup(E,[E|_],N,N).
+		
+	d_lookup(E,[_|T],ID,N):- 
+		ID1 is ID+1,  
+		d_lookup(E, T, ID1, N).
+
+	%print out the list of transitions
+	:- private(wTrans/2).
+	wTrans(Stream, S) :- 
+		forall( ::transition(F,A,T), wT(Stream, F,A,T,S) ).
+
+	:- private(wT/5).
+	
+	wT(Stream, F,A,T,S):-
+		write(Stream, '<transition>\n'),
+		lookup(F,S,N1),
+		write(Stream, '<from>'),write(Stream, N1),	write(Stream, '</from>'),
+		lookup(T,S,N2),
+		write(Stream, '<to>'),  write(Stream, N2),	write(Stream, '</to>')  ,
+		write(Stream, '<read>'),	
+		(	is_lambda(A) ->
+			true;
+			write(Stream,A)
+		),
+		write(Stream, '</read>\n'),
+		write(Stream, '</transition>\n').
+
+	%End L-Flat->jflap
 
 :- end_object.
 
