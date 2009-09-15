@@ -4,6 +4,7 @@
 # Prepares all the files required for MOOSHAK to run L-FLAT
 # Requires superuser privileges
 
+ln -sf $(dirname $(pwd)) /usr/local/
 sudo -H -u ${MOOSHAK_USER} swilgt < /dev/null > /dev/null 2>&1
 sudo chmod -R 777 ${MOOSHAK_HOME}logtalk
 sudo chmod 777 ${MOOSHAK_LFLAT_HOME}

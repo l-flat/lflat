@@ -3,6 +3,7 @@
 
 # Cleans up the lflat/mooshak directory
 
-rm -f ${MOOSHAK_LFLAT_HOME}*.pl ${MOOSHAK_LFLAT_HOME}*.lgt ${MOOSHAK_LFLAT_HOME}examples/*.pl
+rm -f hooks.lgt lflat.lgt loader.lgt
+rm -f ${MOOSHAK_LFLAT_HOME}*.pl ${MOOSHAK_LFLAT_HOME}examples/*.pl
 rm -rf ${MOOSHAK_LFLAT_HOME}.lgt_tmp ${MOOSHAK_LFLAT_HOME}examples/.lgt_tmp
 chmod 755 ${MOOSHAK_LFLAT_HOME}
