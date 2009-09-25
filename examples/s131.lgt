@@ -47,13 +47,13 @@
 		('F'->[a])
 	]).
 	
-	show_words(MaxLen) :-
-		show_words_process(MaxLen) ; true.
-	show_words_process(MaxLen) :-
- 		::word(W),
-		length(W, L),
-		(L > MaxLen -> !, fail ; true),
-		write('    '), writeq(W), nl,
-		fail.
+	show_words(MaxLenght) :-
+ 		::word(Word),
+		list::length(Word, Length),
+		(	Length > MaxLenght ->
+			!
+		;	write('    '), writeq(Word), nl,
+			fail
+		).
 
 :- end_object.
