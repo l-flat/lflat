@@ -921,12 +921,12 @@ RE, MIX. MIX is yet to be implemented.
 
 	:- uses(list, [append/3, member/2]).
 
-	new(Id, Initial, Alphabet, Positives, Negatives) :-
+	new(Id, Alphabet, Positives, Negatives) :-
 		self(Self),
 		findall(positive(Positive), member(Positive, Positives), Positives),
 		findall(negative(Negative), member(Negative, Negatives), Negatives),
 		append(Positives, Negatives, Clauses),
-		create_object(Id, [instantiates(Self)], [], Clauses).
+		create_object(Id, [instantiates(Self)], [], [alphabet(Alphabet)| Clauses]).
 
 :- end_object.
 
