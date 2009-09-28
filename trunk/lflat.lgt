@@ -1143,6 +1143,17 @@ RE, MIX. MIX is yet to be implemented.
 		comment is 'Mechanism textual description.',
 		argnames is ['Description']]).
 
+	:- public(export/1).
+	:- mode(export(+atom), one).
+	:- info(export/1, [
+		comment is 'Exports the mechanism definition to a XML file.',
+		argnames is ['File']]).
+
+	:- protected(export_definition/1).
+	:- mode(export_definition(+atom), one).
+	:- info(export_definition/1, [
+		comment is 'Writes mechanism definition.',
+		argnames is ['File']]).
 
 	:- uses(list, [member/2, reverse/2]).
 	:- uses(set, [valid/1::is_set/1, union/3]).
@@ -1268,6 +1279,18 @@ RE, MIX. MIX is yet to be implemented.
 
 	success_config(Config) :-
 		throw(existence_error(success_config/1, success_config(Config))).
+
+	export(File) :-
+		open(File, write, Stream),
+		write(Stream, '<?xml version=\"1.0\"?>\n'),
+		write(Stream, '<!--Created with lflat-->\n'),
+		write(Stream, '<structure>\n'),
+		::export_definition(File),
+		write(Stream, '</structure>\n'),
+		close(Stream).
+
+	export_definition(_) :-
+		throw(subclass_responsability(export_definition/1)).
 
 :- end_object.
 
@@ -2224,33 +2247,18 @@ RE, MIX. MIX is yet to be implemented.
 	% be pruned and the word will be accepted or rejected at some point.
 	%
 	
-	% Some code to create a jflap file from a L-Flat FA .	
-	:- public(tojflap/1).
-	:- mode(tojflap(-nonvar), one).
-	:- info(tojflap/1, [
-		comment is 'Create a jff (jflap) file of the fa',
-		argnames is ['filename']]).
-
-	tojflap(File):-
-		open(File, write, Stream),
-		write(Stream, '<?xml version=\"1.0\"?>\n'),
-		write(Stream, '<!--Created with lflat-->\n'),
-		write(Stream, '<structure>\n'),
+	export_definition(File) :-
 		write(Stream, '<type>fa</type>\n'),
 		write(Stream, '<automaton>\n'),
-		::states(S),
-		::initial(I),   %%in L-Flat - it's only one initial state -its not a list .!!
-		::finals(F),
-		wStates(Stream, S,[I],F,0),
-		wTrans(Stream, S),
-		write(Stream, '</automaton>\n'),
-		write(Stream, '</structure>\n'),
-		close(Stream),!.
-
-	:- private(wStates/5).
+		::states(States),
+		::initial(Initial),   %%in L-Flat - it's only one initial state -its not a list .!!
+		::finals(Finals),
+		wStates(Stream, States, [Initial], Finals, 0),
+		wTrans(Stream, States),
+		write(Stream, '</automaton>\n').
 
 	wStates(_, [],_,_,_).
-		wStates(Stream, [H|T],I,F,Id) :-
+	wStates(Stream, [H|T],I,F,Id) :-
 		write(Stream, '<state id=\"'),
 		write(Stream, Id),
 		write(Stream, '" name=\"'),
@@ -2267,29 +2275,24 @@ RE, MIX. MIX is yet to be implemented.
 
 	%predicate to lookup an element of a list and return its position in the list -1 on fail
 	%on fail with -1 the conversion will just blindly carry on
-	
-	:- private(lookup/3).
-	:- private(d_lookup/4).
 
-	lookup(E,L,N) :- d_lookup(E, L, 0, N).
+	lookup(E,L,N) :-
+		d_lookup(E, L, 0, N).
 
 	d_lookup(_,[],_, N) :- 
 		N is (-1).
-	
+
 	d_lookup(E,[E|_],N,N).
-		
+
 	d_lookup(E,[_|T],ID,N):- 
 		ID1 is ID+1,  
 		d_lookup(E, T, ID1, N).
 
 	%print out the list of transitions
-	:- private(wTrans/2).
 	wTrans(Stream, S) :- 
 		forall( ::transition(F,A,T), wT(Stream, F,A,T,S) ).
 
-	:- private(wT/5).
-	
-	wT(Stream, F,A,T,S):-
+	wT(Stream, F, A, T, S):-
 		write(Stream, '<transition>\n'),
 		lookup(F,S,N1),
 		write(Stream, '<from>'),write(Stream, N1),	write(Stream, '</from>'),
@@ -2297,13 +2300,11 @@ RE, MIX. MIX is yet to be implemented.
 		write(Stream, '<to>'),  write(Stream, N2),	write(Stream, '</to>')  ,
 		write(Stream, '<read>'),	
 		(	is_lambda(A) ->
-			true;
-			write(Stream,A)
+			true
+		;	write(Stream, A)
 		),
 		write(Stream, '</read>\n'),
 		write(Stream, '</transition>\n').
-
-	%End L-Flat->jflap
 
 :- end_object.
 
