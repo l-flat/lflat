@@ -4,8 +4,8 @@
 	instantiates(language)).
 
 	:- initialization((
-		 ::show,
-		 ::diagnostics
+		::show,
+		::diagnostics
 	)).
 
 	alphabet([a,b]).
@@ -40,10 +40,10 @@
 	initial(1).
 
 	transitions([
-		1/a/1, 
-		1/a/2, 
+		1/a/1,
+		1/a/2,
 		1/b/2,
-		2/b/2, 
+		2/b/2,
 		2/b/1,
 		3/a/2,
 		3/b/2,

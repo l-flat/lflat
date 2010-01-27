@@ -2,7 +2,7 @@
 % Several manipulations involving REs and FAa
 
 % The starting point of these examples is the second RE of slide 100,
-%  but the actual manipulations performed in this file are not in the slides. 
+%  but the actual manipulations performed in this file are not in the slides.
 
 :- object(aL,
 	instantiates(language)).
@@ -46,7 +46,7 @@
 		NDFA::determine(DFA),
 		DFA::show,
 		write('*** minimise ***'), nl,
-		DFA::minimise(MFA),	
+		DFA::minimise(MFA),
 		MFA::show,
 		write('*** rename ***'), nl,
 		MFA::rename(RMFA),

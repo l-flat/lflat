@@ -15,8 +15,8 @@
 
 	transitions([
 		q0/'B'/'B'/'R'/q1,
-		q1/a/b/'R'/q1,	 q1/b/a/'R'/q1,	q1/'B'/'B'/'L'/q2,
-		q2/a/a/'L'/q2,	 q2/b/b/'L'/q2
+		q1/a/b/'R'/q1, q1/b/a/'R'/q1, q1/'B'/'B'/'L'/q2,
+		q2/a/a/'L'/q2, q2/b/b/'L'/q2
 	]).
 
 	finals([]).
