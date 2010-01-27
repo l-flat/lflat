@@ -10,7 +10,7 @@
 		re,
 		re_fa0,
 		re_fa,
-		% finite automata	  
+		% finite automata
 		s80,
 		% context free grammars
 		s131,
@@ -26,7 +26,7 @@
 		s311,
 		s312,
 		s315,
-		% other examples		  
+		% other examples
 		alphabets,
 		predicates,
 		words,

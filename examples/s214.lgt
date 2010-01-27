@@ -42,11 +42,11 @@
 	initial_stack_symbol(z).
 
 	transitions([
-		i/z/a/p/[a,z],  % if at least one a, push it
-		p/a/a/p/[a,a],  % read and push a's
-		p/a/b/q/[],	 % the first b, start popping a's
-		q/a/b/q/[],	 % pop one a for each read b
-		q/z/[]/t/[]	 % no more b's, go to final state				 
+		i/z/a/p/[a,z],	% if at least one a, push it
+		p/a/a/p/[a,a],	% read and push a's
+		p/a/b/q/[],		% the first b, start popping a's
+		q/a/b/q/[],		% pop one a for each read b
+		q/z/[]/t/[]		% no more b's, go to final state
 	]).
 
 	finals([i,t]).

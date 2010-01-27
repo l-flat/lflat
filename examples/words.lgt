@@ -1,10 +1,10 @@
 
 :- object(bits,
-    instantiates(alphabet)).
+	instantiates(alphabet)).
 
-    :- initialization((
-        ::show,
-        ::diagnostics
+	:- initialization((
+		::show,
+		::diagnostics
 	)).
 
 	expression([0,1]).
@@ -14,51 +14,51 @@
 
 
 :- object(decimal,
-    instantiates(alphabet)).
+	instantiates(alphabet)).
 
-    :- initialization((
-        ::show,
-        ::diagnostics
+	:- initialization((
+		::show,
+		::diagnostics
 	)).
 
-    expression(bits + [2,3,4,5,6,7,8,9]).
+	expression(bits + [2,3,4,5,6,7,8,9]).
 
 :- end_object.
 
 
 
 :- object(hex,
-    instantiates(alphabet)).
+	instantiates(alphabet)).
 
-    :- initialization((
-        ::show,
-        ::diagnostics
+	:- initialization((
+		::show,
+		::diagnostics
 	)).
 
-    expression(decimal + [a,b,c,d,e,f]).
+	expression(decimal + [a,b,c,d,e,f]).
 
 :- end_object.
 
 
 
 :- object(letters,
-    instantiates(alphabet)).
+	instantiates(alphabet)).
 
-    :- initialization((
-        ::show,
-        ::diagnostics
+	:- initialization((
+		::show,
+		::diagnostics
 	)).
 
-    expression(hex - decimal).
+	expression(hex - decimal).
 
 :- end_object.
 
 
 
 :- object(up,
-    instantiates(order)).
+	instantiates(order)).
 
-    :- initialization((
+	:- initialization((
 		::show,
 		::diagnostics
 	)).
@@ -73,7 +73,7 @@
 
 :- object(tests_with_words).
 
-    :- initialization((
+	:- initialization((
 		write('*** Tests with words ***'), nl, nl,
 		test1,
 		test2,

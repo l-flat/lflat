@@ -8,7 +8,7 @@
 		::show,
 		::diagnostics
 	)).
-	
+
 	alphabet([a,b]).
 
 	positive([]).
@@ -44,9 +44,9 @@
 		i/z/a/p/[a,z], i/z/b/p/[b,z], % start reading w
 		p/a/a/p/[a,a], p/a/b/p/[b,a], % read and push a's and b's
 		p/b/a/p/[a,b], p/b/b/p/[b,b], % read and push a's and b's
-		p/a/a/q/[], p/b/b/q/[],	   % the symbol read may be the start of w^-1
-		q/a/a/q/[], q/b/b/q/[],	   % match the symbols of w^-1 and w
-		q/z/[]/t/[]				   % end of stack, go to final state
+		p/a/a/q/[], p/b/b/q/[],		  % the symbol read may be the start of w^-1
+		q/a/a/q/[], q/b/b/q/[],		  % match the symbols of w^-1 and w
+		q/z/[]/t/[]					  % end of stack, go to final state
 	]).
 
 	finals([i,t]).

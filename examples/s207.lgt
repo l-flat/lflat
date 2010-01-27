@@ -67,9 +67,9 @@
 
 	transitions([
 		p/z/a/p/[a,z], p/a/a/p/[a,a], % read and push a's
-		p/a/b/q/[],				   % the first b, start popping a's
-		q/a/b/q/[],				   % pop one a for each read b
-		q/z/[]/t/[]				   % no more b's, go to final state
+		p/a/b/q/[],					  % the first b, start popping a's
+		q/a/b/q/[],					  % pop one a for each read b
+		q/z/[]/t/[]					  % no more b's, go to final state
 	]).
 
 	finals([t]).
