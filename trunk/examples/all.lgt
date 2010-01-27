@@ -29,6 +29,7 @@
 		% other examples		  
 		alphabets,
 		predicates,
-		words
+		words,
+		simple
 	])
 ).

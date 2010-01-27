@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 . ${0%${0##*/}}defs.sh
 
 # Runs L-FLAT in the Mooshak context
