@@ -1039,7 +1039,7 @@ RE, MIX. MIX is yet to be implemented.
 				::fail_with_error(Mechanism, Word, 'should be rejected')
 			;	::fail_with_error(Mechanism, 'does not define the intended language', '')
 			)
-		;	true
+		;	fail
 		).
 	test_mechanism(_) :-
 		write('... tests finished'), nl.
