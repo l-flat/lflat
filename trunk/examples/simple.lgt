@@ -1,6 +1,6 @@
 
 % This example introduces a language using positive and negative unit-tests.
-% After that, 5 diferent mechanisms (recognizers and generators) are
+% After that, 6 diferent mechanisms (recognizers and generators) are
 % defined for that language and are checked againt it.
 
 
@@ -28,6 +28,29 @@
 	negative([b,a,a]).
 	negative([a,a,b]).
 	negative([b,a,a,b,b,a,a]).
+
+:- end_object.
+
+
+
+:- object(evenP,			% Predicate for evenL
+	instantiates(predicate)).
+
+	:- uses(word, [occurs/3]).
+
+	:- initialization((
+		::show,
+		::diagnostics,
+		evenL::test_mechanism(evenP),
+		nl, nl
+ 
+	)).
+
+	alphabet([a,b]).
+
+	accept(Word) :-
+		word::word_alphabet(Word, [a,b]) ->
+		occurs(b, Word, N), 0 =:= N mod 2.
 
 :- end_object.
 
