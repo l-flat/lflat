@@ -1096,7 +1096,7 @@ RE, MIX. MIX is yet to be implemented.
 		argnames is ['Word']]).
 
 	:- public(word/1).
-	:- mode(word(-nonvar), zero_or_more).
+	:- mode(word(-list), zero_or_more).
 	:- info(word/1, [
 		comment is 'Mechanism generates word. This predicate produces the solutions according to the mixed increasing order, that is shorter words first.',
 		argnames is ['Word']]).
@@ -1304,7 +1304,7 @@ RE, MIX. MIX is yet to be implemented.
 		version is 2.0,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
 		date is 2009/08/15,
-		comment is 'Specify a language using a Prolog predicate']).
+		comment is 'Specify a language using a Prolog predicate.']).
 
 	:- uses(word, [word_alphabet/2]).
 

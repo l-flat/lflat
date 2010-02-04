@@ -1,7 +1,7 @@
 
 % This example introduces a language using positive and negative unit-tests.
-% After that, 6 diferent mechanisms (recognizers and generators) are
-% defined for that language and are checked againt it.
+% After that, 6 different mechanisms (recognizers and generators) are
+% defined for that language and are checked against it.
 
 
 
