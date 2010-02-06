@@ -1593,6 +1593,7 @@ RE, MIX. MIX is yet to be implemented.
 
 	% fae_compute(+FAE, -FA)
 	% Evaluate expression FAE over finite automata, producing FA
+	%
 	fae_compute(-, _) :-		% catch variables
 		!,
 		fail.
@@ -1650,9 +1651,12 @@ RE, MIX. MIX is yet to be implemented.
 		::expression(Expression),
 		simplify(Expression, RE).
 
-	% simplify(+RE1, -RE2)
-	% RE2 is provably equivalent to RE1 and RE2 is simpler
-	%
+	% simplify(-RE)
+	% RE is provably equivalent to self and RE is usually simpler.
+	% This is an ad hoc solution that only handles a bunch of cases.
+	% There is no method to systematically rewrite a RE to some
+	% normal form (this is called the "star height problem").
+	%	
 	simplify(E + E, F) :-
 		simplify(E, F).
 	simplify(E + {}, F) :-
@@ -2032,19 +2036,16 @@ RE, MIX. MIX is yet to be implemented.
 		consume(S, T, S2).
 
 	% re(-RE)
-	% Translates the deterministic finite automaton FA into a regular expression RE.
-	% pre: deterministic
+	% Translates self into a regular expression RE.
 	%
-	re(RE) :-
+	re(re(R)) :-
 		::initial(Initial),
 		states(States),
 		(	setof(E, Final^(final(Final), re(Initial, Final, States, E)), Es) ->
 			true
 		;	Es = []
 		),
-		re_set(R, Es),
-		re(R)::simplify(RE),
-		!.
+		re_set(R, Es).
 
 	re_set({}, []).
 	re_set(E2 + E1, [E1|T]) :-
@@ -2102,8 +2103,8 @@ RE, MIX. MIX is yet to be implemented.
 		intersection(Final, OriginalFinals, Intersection),
 		Intersection \== [].
 
-	% determine(?FA1, -F2)
-	% Transforms non-deterministic FA1 into deterministic F2.
+	% determine(-FA)
+	% Transforms non-deterministic self into deterministic FA.
 	%
 	determine(fa(I2, T2, F2)) :-
 		::initial(I1),
@@ -2119,15 +2120,15 @@ RE, MIX. MIX is yet to be implemented.
 		;	F2 = []
 		).
 
-	% rename(+FA1, -FA2)
-	% FA2 is as FA1, but with all states renamed with new identifiers.
+	% rename(-FA)
+	% FA is as self, but with all states renamed with new identifiers.
 	%
-	rename(FA2) :-
+	rename(FA) :-
 		states(S1), rename_states(S1, [], _, R),
-		rename(R, FA2).
+		rename(R, FA).
 
-	% rename(+FA1, +Renaming, -FA2)
-	% The names FA2's states are obtained by applying Renaming to FA1's states.
+	% rename(+Renaming, -FA)
+	% The names FA's states are obtained by applying Renaming to self's states.
 	% States can be merged if Renaming is not a bijection
 	% pre: Renaming is a total function given as a set of pairs State1/State2
 	%
@@ -2202,16 +2203,17 @@ RE, MIX. MIX is yet to be implemented.
 		;	Class = []
 		).
 
-	% minimise(-FA2)
-	% The minimisation of self is FA2
+	% minimise(-FA)
+	% The minimisation of self is FA.
+	% pre: self is deterministic
 	%
-	minimise(FA2) :-
+	minimise(FA) :-
 		states(States),
 		(	setof(State/Class, (member(State, States), equivalence_class(State, Class)), R) ->
 			true
 		;	R = []
 		),
-		rename(R, FA2).
+		rename(R, FA).
 
 	% COMENTARY:
 	%
