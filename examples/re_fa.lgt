@@ -67,8 +67,8 @@
 %		P100FAD::diagnostics,
 		p100L::test_mechanism(P100FADR),
 
-		write('*** Minimise a finite automata ***'), nl,
-		P100FADR::minimise(P100FAM),
+		write('*** Minimize a finite automata ***'), nl,
+		P100FADR::minimize(P100FAM),
 		P100FAM::show,
 %		P100FAD::diagnostics,
 		p100L::test_mechanism(P100FAM),
