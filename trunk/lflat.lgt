@@ -1641,7 +1641,7 @@ RE, MIX. MIX is yet to be implemented.
 		).
 	fae_compute(min(FA1), FA2) :-
 		!,
-		fae_compute(det(FA1), FA), FA::minimise(FA2).
+		fae_compute(det(FA1), FA), FA::minimize(FA2).
 	fae_compute(FA, fa(I, T, F)) :-
 		FA::initial(I),
 		FA::transitions(T),
@@ -1831,10 +1831,10 @@ RE, MIX. MIX is yet to be implemented.
 		comment is 'Rename all the stated with new ids',
 		argnames is ['FARenamed']]).
 
-	:- public(minimise/1).
-	:- mode(minimise(-nonvar), one).
-	:- info(minimise/1, [
-		comment is 'Minimise finita automata',
+	:- public(minimize/1).
+	:- mode(minimize(-nonvar), one).
+	:- info(minimize/1, [
+		comment is 'Minimize finita automata',
 		argnames is ['FAMinimized']]).
 
 	:- uses(term_classification, [is_symbol/1, is_lambda/1, is_state/1]).
@@ -2203,11 +2203,11 @@ RE, MIX. MIX is yet to be implemented.
 		;	Class = []
 		).
 
-	% minimise(-FA)
+	% minimize(-FA)
 	% The minimisation of self is FA.
 	% pre: self is deterministic
 	%
-	minimise(FA) :-
+	minimize(FA) :-
 		states(States),
 		(	setof(State/Class, (member(State, States), equivalence_class(State, Class)), R) ->
 			true

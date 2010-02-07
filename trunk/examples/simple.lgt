@@ -36,8 +36,6 @@
 :- object(evenP,			% Predicate for evenL
 	instantiates(predicate)).
 
-	:- uses(word, [occurs/3]).
-
 	:- initialization((
 		::show,
 		::diagnostics,
@@ -50,7 +48,7 @@
 
 	accept(Word) :-
 		word::word_alphabet(Word, [a,b]) ->
-		occurs(b, Word, N), 0 =:= N mod 2.
+		word::occurs(b, Word, N), 0 =:= N mod 2.
 
 :- end_object.
 
@@ -60,11 +58,18 @@
 	instantiates(re)).
 
 	:- initialization((
+		% show and check the regular expression:
 		::show,
 		::diagnostics,
 		evenL::test_mechanism(evenRE),
+		% convert the regular expression into a finite automaton:
+		::fa(FA),
+		FA::determine(FAD),
+		FAD::minimize(FAM),
+		FAM::rename(FAR),
+		FAR::show,
 		nl, nl
-	)).
+   )).
 
 	expression((a + b * a^* * b)^*).
 
