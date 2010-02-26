@@ -1,4 +1,4 @@
 set        Fatal {}
-set      Warning {Just one test defined<br>}
+set      Warning {}
 set   Definition Definition
-set         Test T1
+set         Test {}

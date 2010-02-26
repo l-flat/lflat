@@ -29,7 +29,7 @@ EOF
 # Compile /bin/bash /usr/local/lflat/mooshak/lflat.sh compile $name
 # Execute /bin/bash /usr/local/lflat/mooshak/lflat.sh execute $name
 # MaxCompFork 10
-# MaxExecFork 4
+# MaxExecFork 10
 # MaxCore 10485760
 # MaxData 20971520
 # MaxStack 10485760
