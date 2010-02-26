@@ -1,0 +1,9 @@
+Starting diagnostics of evenL ...
+... diagnostics finished
+evenFA is well defined
+Starting diagnostics of evenFA ...
+... diagnostics finished
+evenFA is deterministic
+Starting tests of evenFA against evenL ...
+... tests finished
+Finished checking

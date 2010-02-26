@@ -1,0 +1,9 @@
+Starting diagnostics of aibjambnL ...
+... diagnostics finished
+aibjambnPDA is well defined
+Starting diagnostics of aibjambnPDA ...
+... diagnostics finished
+aibjambnPDA is deterministic
+Starting tests of aibjambnPDA against aibjambnL ...
+... tests finished
+Finished checking

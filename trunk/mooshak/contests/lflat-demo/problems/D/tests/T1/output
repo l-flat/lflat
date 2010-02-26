@@ -1,0 +1,9 @@
+Starting diagnostics of evenL ...
+... diagnostics finished
+evenPDA is well defined
+Starting diagnostics of evenPDA ...
+... diagnostics finished
+evenPDA is deterministic
+Starting tests of evenPDA against evenL ...
+... tests finished
+Finished checking

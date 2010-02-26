@@ -1,0 +1,9 @@
+Starting diagnostics of paratembL ...
+... diagnostics finished
+paratembFA is well defined
+Starting diagnostics of paratembFA ...
+... diagnostics finished
+paratembFA is deterministic
+Starting tests of paratembFA against paratembL ...
+... tests finished
+Finished checking
