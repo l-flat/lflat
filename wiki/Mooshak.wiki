@@ -2,6 +2,6 @@ Demo Mooshak contest
 
 A demo contest, named L-FLAT Demo, consisting of 10 problems, is running here:
 
-http://sunra.di.fct.unl.pt/~mooshak/cgi-bin/execute?command=team&contest=2009-lflat-demo
+http://sunra.di.fct.unl.pt/~mooshak/cgi-bin/execute?command=team&contest=lflat-demo
 
 There is already a user named "test" with password "test". But you can register yourself as a new user and receive a password via e-mail.
