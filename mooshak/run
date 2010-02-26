@@ -1,8 +1,0 @@
-#/bin/bash
-. ${0%${0##*/}}defs.sh
-
-export LOGTALKHOME=/usr/share/logtalk
-export LOGTALKUSER=${MOOSHAK_HOME}logtalk
-umask 0000
-ln -sf ../hooks.lgt ../lflat.lgt ../loader.lgt ${MOOSHAK_LFLAT_HOME}
-swilgt -q -g "set_logtalk_flag(startup_message, banner), set_logtalk_flag(report, off), {mloader}"
