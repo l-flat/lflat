@@ -1,0 +1,27 @@
+:- object(evenL,
+    instantiates(language)).
+
+    :- initialization((
+           ::diagnostics,
+           contests::check_definition(fa, evenFA),
+           evenFA::diagnostics,
+	   contests::check_deterministic(evenFA),
+           ::test_mechanism(evenFA),
+           contests::finish_checking
+	)).
+
+    alphabet([a,b]).
+
+    positive([]).
+    positive([a,a,a]).
+    positive([b,b]).
+    positive([a,b,b]).
+    positive([b,b,a,a]).
+    positive([b,a,a,a,b,b,a,b]).
+
+    negative([b]).
+    negative([b,b,b]).
+    negative([b,a,a]).
+    negative([a,a,b]).
+    negative([b,a,a,b,b,a,a]).
+:- end_object.

@@ -1,0 +1,9 @@
+Starting diagnostics of evenL ...
+... diagnostics finished
+evenTM is well defined
+Starting diagnostics of evenTM ...
+... diagnostics finished
+evenTM is deterministic
+Starting tests of evenTM against evenL ...
+... tests finished
+Finished checking
