@@ -12,5 +12,5 @@ set  Environment Environment
 set      Timeout 30
 set Static_corrector {}
 set Dynamic_corrector {}
-set       images {}
-set        tests {}
+set       images images
+set        tests tests

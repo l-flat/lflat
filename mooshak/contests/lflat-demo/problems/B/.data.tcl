@@ -4,7 +4,7 @@ set         Name B
 set        Color red
 set        Title { }
 set   Difficulty 1
-set         Type mathematics
+set         Type {}
 set  Description Description.html
 set          PDF PDF.pdf
 set      Program Program.lgt
