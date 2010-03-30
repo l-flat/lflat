@@ -6,6 +6,7 @@
 
 ln -sf $(dirname $(pwd)) /usr/local/
 sudo -H -u ${MOOSHAK_USER} swilgt < /dev/null > /dev/null 2>&1
+sudo chmod -R 666 ${LFLAT_HOME}*.pl
 sudo chmod -R 777 ${MOOSHAK_HOME}logtalk
 sudo chmod 777 ${MOOSHAK_LFLAT_HOME}
 chmod 744 ${MOOSHAK_LFLAT_HOME}*.sh
