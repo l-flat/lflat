@@ -100,7 +100,11 @@ RE, MIX. MIX is yet to be implemented.
 
 % Allows missing/not imported predicates to be discovered
 
-:- set_prolog_flag(unknown, error).
+:- if(\+ current_logtalk_flag(prolog_dialect, qp)).
+
+	:- set_prolog_flag(unknown, error).
+
+:- endif.
 
 
 :- op(300, xf, ^*).
@@ -1285,7 +1289,7 @@ RE, MIX. MIX is yet to be implemented.
 		write(Stream, '<?xml version=\"1.0\"?>\n'),
 		write(Stream, '<!--Created with lflat-->\n'),
 		write(Stream, '<structure>\n'),
-		::export_definition(File),
+		::export_definition(Stream),
 		write(Stream, '</structure>\n'),
 		close(Stream).
 
@@ -1522,8 +1526,8 @@ RE, MIX. MIX is yet to be implemented.
 		;	R = RE2
 		).
 	action(config([(RE1 * RE2)| Stack], Done, Input), config([RE1, RE2| Stack], Done, Input)).
-	action(config([_^*| Stack], Done, Input), config(Stack, Done, Input)).
-	action(config([RE1^*| Stack], Done, Input), config([RE1, RE1^*| Stack], Done, Input)).
+	action(config([(_^*)| Stack], Done, Input), config(Stack, Done, Input)).
+	action(config([(RE1^*)| Stack], Done, Input), config([RE1, (RE1^*)| Stack], Done, Input)).
 
 	accept(Word) :-			% implements algorithm
 		nonvar(Word),
@@ -2249,7 +2253,7 @@ RE, MIX. MIX is yet to be implemented.
 	% be pruned and the word will be accepted or rejected at some point.
 	%
 	
-	export_definition(File) :-
+	export_definition(Stream) :-
 		write(Stream, '<type>fa</type>\n'),
 		write(Stream, '<automaton>\n'),
 		::states(States),
