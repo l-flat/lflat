@@ -2466,7 +2466,7 @@ RE, MIX. MIX is yet to be implemented.
 
 	non_terminal(Symbol) :-
 		atom(Symbol),
-		sub_atom(Symbol, 0, 1, _, C),
+		atom_chars(Symbol, [C| _]),
 		'A' @=< C, C @=< 'Z'.
 
 	valid :-
