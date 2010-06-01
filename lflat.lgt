@@ -1147,9 +1147,9 @@ RE, MIX. MIX is yet to be implemented.
 		comment is 'Mechanism textual description.',
 		argnames is ['Description']]).
 
-	:- public(export/1).
+	:- public((export)/1).
 	:- mode(export(+atom), one).
-	:- info(export/1, [
+	:- info((export)/1, [
 		comment is 'Exports the mechanism definition to a XML file.',
 		argnames is ['File']]).
 
