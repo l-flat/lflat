@@ -537,7 +537,7 @@ RE, MIX. MIX is yet to be implemented.
 		comment is 'Alphabet evaluates to symbol set Symbols.',
 		argnames is ['Symbols']]).
 
-	:- uses(list, [is_list/1, permutation/2, sort/2]).
+	:- uses(list, [valid/1::is_list/1, permutation/2, sort/2]).
 	:- uses(term_classification, [is_symbol/1]).
 	:- uses(set, [valid/1::is_set/1, member/2, union/3, intersection/3, symdiff/3]).
 
