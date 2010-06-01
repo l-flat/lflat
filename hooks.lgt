@@ -49,10 +49,11 @@
 :- else.
 
 	:- initialization((
+		nl,
 		write('************************************* WARNING **************************************'), nl,
 		write('Your back-end Prolog compiler does not seem to support the term expansion mechanism.'), nl,
 		write('Representing languages and automata using object proxies is therefore not supported.'), nl,
-		write('************************************************************************************'), nl
+		write('************************************************************************************'), nl, nl
 	)).
 
 :- endif.
