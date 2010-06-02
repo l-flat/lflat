@@ -26,7 +26,7 @@
 
 % the following expansions are only necessary when using object proxies:
 
-:- if(predicate_property(term_expansion(_, _), multifile)).
+:- if((predicate_property(term_expansion(_, _), multifile); current_logtalk_flag(prolog_dialect, qp))).
 
 	:- multifile(term_expansion/2).
 	:- dynamic(term_expansion/2).
