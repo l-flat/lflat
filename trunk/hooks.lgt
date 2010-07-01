@@ -25,8 +25,31 @@
 
 
 % the following expansions are only necessary when using object proxies:
+% (due to the lack of Prolog portability of the predicate_property/2, we
+% cannot apply the obvious simplification to this code in order to avoid
+% the duplicating the definjtions of term_expansion/2!)
 
-:- if((predicate_property(term_expansion(_, _), multifile); current_logtalk_flag(prolog_dialect, qp))).
+:- if(predicate_property(term_expansion(_, _), multifile)).
+
+	:- multifile(term_expansion/2).
+	:- dynamic(term_expansion/2).
+
+	term_expansion(fa(Initial, Transitions, Finals), [fa(Initial, OrderedTransitions, OrderedFinals)]) :-
+		sort(Transitions, OrderedTransitions),
+		sort(Finals, OrderedFinals).
+
+	term_expansion(cfg(StartSymbol, Rules), [cfg(StartSymbol, OrderedRules)]) :-
+		sort(Rules, OrderedRules).
+
+	term_expansion(pda(Initial, InitialStackSymbol, Transitions, Finals), [pda(Initial, InitialStackSymbol, OrderedTransitions, OrderedFinals)]) :-
+		sort(Transitions, OrderedTransitions),
+		sort(Finals, OrderedFinals).
+
+	term_expansion(tm(Initial, Transitions, Finals), [tm(Initial, OrderedTransitions, OrderedFinals)]) :-
+		sort(Transitions, OrderedTransitions),
+		sort(Finals, OrderedFinals).
+
+:- elif(current_logtalk_flag(prolog_dialect, qp)).
 
 	:- multifile(term_expansion/2).
 	:- dynamic(term_expansion/2).
