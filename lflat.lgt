@@ -1967,7 +1967,7 @@ RE, MIX. MIX is yet to be implemented.
 		::transitions(Transitions),
 		forall(
 			member(From/Symbol/To, Transitions),
-			(write('	'), write(From), write(' - '), write(Symbol), write(' -> '), write(To), nl )
+			(write('    '), write(From), write(' - '), write(Symbol), write(' -> '), write(To), nl )
 		),
 		write('  Final states: '), ::finals(Finals), write(Finals), nl,
 		write('  Deterministic: '),
@@ -2540,7 +2540,7 @@ RE, MIX. MIX is yet to be implemented.
 		write('  Rules:'), nl,
 		forall(
 			rule(R),
-			(write('	'), writeq(R), nl)).
+			(write('    '), writeq(R), nl)).
 
 	initial_config(Word, config([Initial], [], Word)) :-
 		::start_symbol(Initial).
@@ -3115,7 +3115,7 @@ RE, MIX. MIX is yet to be implemented.
 		::transitions(Transitions),
 		forall(
 			member(From/Pop/In/To/Push, Transitions),
-			(write('	'), write(From/Pop), write(' - '), write(In), write(' -> '), write(To/Push), nl)),
+			(write('    '), write(From/Pop), write(' - '), write(In), write(' -> '), write(To/Push), nl)),
 		write('  Final states: '), ::finals(Finals), write(Finals), nl,
 		write('  Deterministic: '),
 		(	deterministic ->
@@ -3504,7 +3504,7 @@ RE, MIX. MIX is yet to be implemented.
 		::transitions(Transitions),
 		forall(
 			member(From/Read/Write/Move/To, Transitions),
-			( write('	'), write(From),
+			( write('    '), write(From),
 			  write(' - ('), write(Read),
 			  write('/'), write(Write),
 			  write(' '), write(Move),
@@ -3541,7 +3541,7 @@ RE, MIX. MIX is yet to be implemented.
 		write('   '), ::write_symbol_list(LeftR, ' '),
 		write('>'), write(Current),
 		::write_symbol_list(Right, ' '),
-		write('	'), write(State),
+		write('    '), write(State),
 		nl.
 
 	% action(+CurrentConfig, -NewConfig)
