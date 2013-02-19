@@ -222,12 +222,8 @@ RE, MIX. MIX is yet to be implemented.
 		argnames is ['Examples']]).
 
 	banner :-
-		(	current_logtalk_flag(startup_message, banner) ->
-			write('L-FLAT 2.0 - the Logtalk Formal Language and Automata Toolkit'), nl,
-			write('Copyright (c) 2005-2009 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl,
-			nl
-		;	true
-		).
+		write('L-FLAT 2.0 - the Logtalk Formal Language and Automata Toolkit'), nl,
+		write('Copyright (c) 2005-2009 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl, nl.
 
 	run_example(Example) :-
 		logtalk_load(lflat_examples(Example), [hook(hook)]).

@@ -45,7 +45,7 @@
 %  To define a "library" path for your projects, edit and uncomment the
 %  following lines (the library path must end with a slash character):
 
-:- if((current_logtalk_flag(version, version(_, Major, _)), Major =< 38)).
+:- if((current_logtalk_flag(version, version(2, Major, _)), Major =< 38)).
 
 	:- if(current_logtalk_flag(multifile_directive, supported)).
 
@@ -91,12 +91,12 @@
 %  To make Logtalk startup and compilation less verbose uncomment the
 %  following lines:
 
-
+/*
 :- initialization((
 	set_logtalk_flag(startup_message, banner),
 	set_logtalk_flag(report, warnings)
 )).
-
+*/
 
 
 %  To compile all your source files for debugging uncomment the following
@@ -118,11 +118,11 @@
 %  the following lines (note that some Prolog compilers don't support this
 %  feature):
 
-
+/*
 :- initialization((
 	set_logtalk_flag(altdirs, on)
 )).
-
+*/
 
 
 %  To collect all XML documenting files in the same place for generating 
