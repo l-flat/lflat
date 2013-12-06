@@ -1445,6 +1445,7 @@ RE, MIX. MIX is yet to be implemented.
 	valid(S) :-
 		is_symbol(S), !.
 	valid(RE) :-
+		callable(RE),
 		instantiates_class(RE, re), !,
 		RE::expression(Expression),
 		valid(Expression).
@@ -1471,6 +1472,7 @@ RE, MIX. MIX is yet to be implemented.
 	alphabet(S, [S]) :-
 		is_symbol(S), !.
 	alphabet(RE, Alphabet) :-
+		callable(RE),
 		instantiates_class(RE, re), !,
 		RE::expression(Expression),
 		alphabet(Expression, Alphabet).
@@ -1514,6 +1516,7 @@ RE, MIX. MIX is yet to be implemented.
 		is_symbol(S),
 		!.
 	action(config([RE| Stack], Done, Input), config([Expression| Stack], Done, Input)) :-
+		callable(RE),
 		instantiates_class(RE, re),
 		!,
 		RE::expression(Expression).
@@ -1539,6 +1542,7 @@ RE, MIX. MIX is yet to be implemented.
 		is_symbol(S),
 		!.
 	matched(RE, W) :-
+		callable(RE),
 		instantiates_class(RE, re),
 		!,
 		RE::expression(Expression),
@@ -1578,6 +1582,7 @@ RE, MIX. MIX is yet to be implemented.
 		gensym(s, I),
 		gensym(s, F).
 	fae(RE, FA) :-
+		callable(RE),
 		instantiates_class(RE, re),
 		!,
 		RE::expression(Expression),
