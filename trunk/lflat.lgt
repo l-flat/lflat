@@ -1371,9 +1371,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.0,
+		version is 2.1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2013/12/30,
 		comment is 'Regular expressions.']).
 
 	:- public(expression/1).
@@ -1633,7 +1633,7 @@ RE, MIX. MIX is yet to be implemented.
 	fae_compute(-FA, fa(I, T, F)) :-
 		!,
 		fae_compute(det(FA), fa(I, T, A)),
-		fae_compute(I, T, A)::states(S), symdiff(S, A, F).
+		fa(I, T, A)::states(S), symdiff(S, A, F).
 	fae_compute(FA1 /\ FA2, FA) :-
 		!,
 		fae_compute(-(-FA1 + (-FA2)), FA).
