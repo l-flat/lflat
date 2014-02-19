@@ -3,6 +3,7 @@
 
 	:- initialization((
 		% load Logtalk libraries used by L-FLAT:
+		logtalk_load(library(types_loader), [portability(silent)]),
 		logtalk_load(library(gensym), [portability(silent)]),
 		logtalk_load(roots(loader), [portability(silent)]),
 		% load L-FLAT itself:
