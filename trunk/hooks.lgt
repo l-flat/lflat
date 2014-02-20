@@ -27,7 +27,7 @@
 % the following expansions are only necessary when using object proxies:
 % (due to the lack of Prolog portability of the predicate_property/2, we
 % cannot apply the obvious simplification to this code in order to avoid
-% the duplicating the definjtions of term_expansion/2!)
+% the duplicating the definitions of term_expansion/2!)
 
 :- if(predicate_property(term_expansion(_, _), multifile)).
 
