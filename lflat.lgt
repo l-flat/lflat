@@ -552,7 +552,7 @@ RE, MIX. MIX is yet to be implemented.
 		::expression(Expression),
 		valid(Expression).
 
-	valid(-) :-
+	valid((-)) :-
 		!,
 		fail.
 	valid([]) :-
@@ -798,7 +798,7 @@ RE, MIX. MIX is yet to be implemented.
 	:- uses(list, [member/2, length/2, append/3, reverse/2, nth0/3, valid/1::is_list/1]).
 	:- uses(set, [valid/1::is_set/1]).
 
-	valid(-) :-
+	valid((-)) :-
 		!,
 		fail.
 	valid([]).
@@ -1599,7 +1599,7 @@ RE, MIX. MIX is yet to be implemented.
 	% fae_compute(+FAE, -FA)
 	% Evaluate expression FAE over finite automata, producing FA
 	%
-	fae_compute(-, _) :-		% catch variables
+	fae_compute((-), _) :-		% catch variables
 		!,
 		fail.
 	fae_compute(FA1 + FA2, fa(I, T, F)) :-
@@ -1799,7 +1799,7 @@ RE, MIX. MIX is yet to be implemented.
 		argnames is ['States']]).
 
 	:- public(reachable/4).
-	:- mode(reachable(+nonvar, ?nonvar, ?nonvar, +), zero_or_more).
+	:- mode(reachable(+nonvar, ?nonvar, ?nonvar, +list), zero_or_more).
 	:- info(reachable/4, [
 		comment is 'State2 is reachable from State1 by consuming Word without repeating states (including those in Path). Assumes member(State1, Path).',
 		argnames is ['State1', 'State2', 'Word', 'Path']]).
