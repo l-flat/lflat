@@ -36,3 +36,19 @@ type the query:
 To run a specific example, e.g. s131.lgt, type the query:
 
 	| ?- {lflat_examples(s131)}.
+
+
+L-FLAT documentation
+--------------------
+
+See the `lflat_entity_diagram.pdf` file for an overview of the L-Flat
+architecture.
+
+See the paper "L-FLAT: Logtalk Toolkit for Formal Languages and Automata
+Theory" by Paulo Moura and Artur Miguel Dias for a detailed description:
+
+	http://arxiv.org/abs/1112.3783
+
+
+
+
