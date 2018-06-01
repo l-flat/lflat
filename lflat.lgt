@@ -2321,13 +2321,13 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2.1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2018/06/01,
 		comment is 'Metaclass of cfg.']).
 
 	:- public(new/3).
-	:- mode(new(?object_identifier, +nonvar, +list, +list), one).
+	:- mode(new(?object_identifier, +nonvar, +list), one).
 	:- info(new/3, [
 		comment is 'Creates a new context free grammar.',
 		argnames is ['Id', 'StartSymbol', 'Rules']]).
@@ -2348,14 +2348,14 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.0,
+		version is 2.1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2018/06/01,
 		comment is 'Context Free Grammars.']).
 
 	:- public(start_symbol/1).
-	:- mode(start_symbom(-nonvar), one).
-	:- info(start_symbom/1, [
+	:- mode(start_symbol(-nonvar), one).
+	:- info(start_symbol/1, [
 		comment is 'The start symbol of the context free grammar is Symbol.',
 		argnames is ['Symbol']]).
 
