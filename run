@@ -1,4 +1,4 @@
-#/bin/bash
+#!/usr/bin/env bash
 
 if ! test "$LOGTALKHOME"
 then
@@ -10,5 +10,8 @@ then
     export LOGTALKUSER="$HOME"/logtalk
 fi
 
-swilgt -q -g "set_logtalk_flag(startup_message, banner), set_logtalk_flag(report, off), {loader}"
-
+if grep --quiet "^2" "$LOGTALKUSER/VERSION.txt" 2> /dev/null; then
+	swilgt -q -g "set_logtalk_flag(startup_message, banner), set_logtalk_flag(report, off), {loader}"
+else
+	swilgt -q -g "{loader}"
+fi
