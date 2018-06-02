@@ -93,7 +93,8 @@ RE, MIX. MIX is yet to be implemented.
 
 :- if(current_logtalk_flag(prolog_dialect, swi)).
 
-	:- set_prolog_flag(toplevel_print_options, [max_depth(200)]).
+	% bypass the compiler to avoid a portability warning on the flag
+	{:- set_prolog_flag(toplevel_print_options, [max_depth(200)])}.
 
 :- endif.
 
