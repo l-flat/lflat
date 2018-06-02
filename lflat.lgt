@@ -253,19 +253,25 @@ RE, MIX. MIX is yet to be implemented.
 	:- info([
 		version is 2.0,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2018/06/02,
 		comment is 'Utility predicates for composing and writing messages.']).
 
-	:- public([message/4,
-				fail_with_warning/3, fail_with_error/3, halt_with_error/3]).
+	:- public([
+		message/4,
+		fail_with_warning/3,
+		fail_with_error/3,
+		halt_with_error/3
+	]).
 
 	:- public(execute/1).
+	:- meta_predicate(execute(0)).
 	:- mode(execute(+callable), one).
 	:- info(execute/1, [
 		comment is 'Calls a goal, printing "Yes" or "No".',
 		argnames is ['Goal']]).
 
 	:- public(execute/3).
+	:- meta_predicate(execute(0, *, *)).
 	:- mode(execute(+callable, +atom, +callable), one).
 	:- info(execute/3, [
 		comment is 'Calls a goal Goal, writing result Result until Goal fails or stop condition Stop succeeds.',
