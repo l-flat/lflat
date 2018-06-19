@@ -651,9 +651,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(entity)).
 
 	:- info([
-		version is 2.0,
+		version is 2.01,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2018/06/19,
 		comment is 'Total order over an alphabet.']).
 
 	:- public(alphabet/1).
@@ -696,10 +696,10 @@ RE, MIX. MIX is yet to be implemented.
 		{N1 >= N2}.
 
 	Symbol1 =:= Symbol2 :-
-		{Symbol1 == Symbol2}.
+		Symbol1 == Symbol2.
 
 	Symbol1 =\= Symbol2 :-
-		{Symbol1 \== Symbol2}.
+		Symbol1 \== Symbol2.
 
 	show :-
 		write('ORDER: '), self(Self), writeq(Self), nl,
