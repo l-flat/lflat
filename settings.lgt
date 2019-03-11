@@ -115,11 +115,11 @@
 
 %  To develop portable Logtalk applications uncomment the following lines:
 
-
+/*
 :- initialization(
 	set_logtalk_flag(portability, warning)
 ).
-
+*/
 
 
 %  To maximize performance by turning off relevant optional features
