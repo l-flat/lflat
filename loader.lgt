@@ -1,8 +1,8 @@
 
 :- initialization((
 	% load Logtalk libraries used by L-FLAT:
-	logtalk_load(library(types_loader)),
-	logtalk_load(library(gensym)),
+	logtalk_load(types(loader)),
+	logtalk_load(gensym(gensym)),
 	logtalk_load(roots(loader)),
 	% load L-FLAT itself:
 	logtalk_load(lflat_home(lflat), [unknown_entities(silent), optimize(on)]),
