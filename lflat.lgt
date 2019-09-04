@@ -1085,9 +1085,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(entity)).
 
 	:- info([
-		version is 2.0,
+		version is 2.1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2019/09/04,
 		comment is 'Common predicates for all mechanisms.']).
 
 	:- public(accept/2).
@@ -1178,7 +1178,7 @@ RE, MIX. MIX is yet to be implemented.
 	%
 	actions(FinalPaths, FinalPaths, _).
 	actions(CurrentPaths, FinalPaths, VisitedConfigs) :-
-		(	setof(C, member([C| _], CurrentPaths), VisitedConfigs2) ->
+		(	setof(C, Cs^member([C| Cs], CurrentPaths), VisitedConfigs2) ->
 			true
 		;	VisitedConfigs2 = []
 		),
