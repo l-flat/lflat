@@ -26,7 +26,7 @@ Running L-FLAT
 
 2. Start Logtalk from the L-FLAT directory and type the query:
 
-	| ?- {loader}.
+		| ?- {loader}.
 
 
 Running L-FLAT Examples
