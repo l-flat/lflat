@@ -5,9 +5,9 @@
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Answer to direct questions.']).
 
 	:- public([message/4,
@@ -47,9 +47,9 @@
 	imports(messages)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Automated contests.']).
 
 	:- public([	setup/0,

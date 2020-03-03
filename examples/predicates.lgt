@@ -12,7 +12,8 @@
 	alphabet(bits).
 
 	accept(Word) :-
-		word::word_alphabet(Word, bits) ->
+		word::word_alphabet(Word, bits),
+		!,
 		occurs(1, Word, N), 0 =:= N mod 2.
 
 :- end_object.
@@ -31,7 +32,8 @@
 	alphabet(bits).
 
 	accept(Word) :-
-		word::word_alphabet(Word, bits) ->
+		word::word_alphabet(Word, bits),
+		!,
 		occurs(1, Word, N), 0 =\= N mod 2.
 
 :- end_object.

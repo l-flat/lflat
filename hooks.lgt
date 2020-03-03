@@ -3,9 +3,9 @@
 	implements(expanding)).
 
 	:- info([
-		version is 1.0,
+		version is 1:0:1,
 		author is 'Paulo Moura',
-		date is 2008/9/30,
+		date is 2020-03-03,
 		comment is 'Hook predicates for converting example sets into ordered sets.']).
 
 	:- uses(list, [sort/2]).

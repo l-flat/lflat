@@ -47,8 +47,10 @@
 	alphabet([a,b]).
 
 	accept(Word) :-
-		word::word_alphabet(Word, [a,b]) ->
-		word::occurs(b, Word, N), 0 =:= N mod 2.
+		word::word_alphabet(Word, [a,b]),
+		!,
+		word::occurs(b, Word, N),
+		0 =:= N mod 2.
 
 :- end_object.
 

@@ -22,7 +22,7 @@ Authors
 Running L-FLAT
 --------------
 
-1. Install Logtalk 3.27.0 or later version (https://logtalk.org/).
+1. Install Logtalk 3.36.0 or later version (https://logtalk.org/).
 
 2. Start Logtalk from the L-FLAT directory and type the query:
 

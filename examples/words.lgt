@@ -97,13 +97,18 @@
 		write(Word), nl, nl.
 
 	test3 :-
-		test3x; nl.
+		(	test3x
+		; 	nl
+		).
 	test3x :-
 		write('** Some words over the alphabet bits:'), nl,
 		word::word_alphabet(Word, bits),
 		write(Word), nl,
-		list::length(Word, N), (N > 4 -> !),
-		fail.
+		list::length(Word, N),
+		(	N > 4 ->
+			!, fail
+		;	fail
+		).
 
 	test4 :-
 		write('** Words less than [1,1,1] in the lexical order:'), nl,

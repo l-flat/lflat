@@ -9,8 +9,8 @@
 %  - Michel Wermelinger                                         %
 %	(Computing Department, The Open University)                 %
 %                                                               %
-% L-FLAT, version 2.0                                           %
-% 15/Aug/2009                                                   %
+% L-FLAT, version 2.0.1                                         %
+% 03/Mar/2020                                                   %
 %                                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -18,6 +18,9 @@
 
 /*
 Changelog (sumary):
+
+03/Mar/2020 -- L-FLAT version 2.0.1 (Paulo Moura, A. Miguel Dias)
+	* Update for Logtalk 3.36.0, which is now the minimum version required.
 
 15/Aug/2009 -- L-FLAT version 2.0 (Paulo Moura, A. Miguel Dias)
 	* The entire application was rewritten in Logtalk. Virtually all the
@@ -116,9 +119,9 @@ RE, MIX. MIX is yet to be implemented.
 :- object(modes).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Flags defining application modes for warning and error reporting.']).
 
 	:- public(set_warning_mode/1).
@@ -200,9 +203,9 @@ RE, MIX. MIX is yet to be implemented.
 :- object(interaction).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Predicates for command-line user interaction.']).
 
 	:- public(banner/0).
@@ -251,9 +254,9 @@ RE, MIX. MIX is yet to be implemented.
 :- category(messages).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2018/06/02,
+		date is 2020-03-03,
 		comment is 'Utility predicates for composing and writing messages.']).
 
 	:- public([
@@ -359,9 +362,9 @@ RE, MIX. MIX is yet to be implemented.
 :- object(term_classification).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Classification of terms as valid elements for sets, valid names for declarations, etc.']).
 
 	:- public(is_element/1).
@@ -421,9 +424,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(object)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Predicates common to all entities.']).
 
 	:- public(show/0).
@@ -478,9 +481,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Metaclass of alphabet.']).
 
 	:- public(equal/2).
@@ -523,9 +526,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(entity)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Alphabets.']).
 
 	:- public(expression/1).
@@ -626,9 +629,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Metaclass of order.']).
 
 	:- public(new/3).
@@ -651,9 +654,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(entity)).
 
 	:- info([
-		version is 2.01,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2018/06/19,
+		date is 2020-03-03,
 		comment is 'Total order over an alphabet.']).
 
 	:- public(alphabet/1).
@@ -732,9 +735,9 @@ RE, MIX. MIX is yet to be implemented.
 :- object(word).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Words are finite sequences of symbols.']).
 
 	:- public(valid/1).
@@ -915,9 +918,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Metaclass of language.']).
 
 	:- public(new/4).
@@ -944,9 +947,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(entity)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Languages defined using unit tests.']).
 
 	:- public(alphabet/1).
@@ -1066,9 +1069,9 @@ RE, MIX. MIX is yet to be implemented.
 :- protocol(deterministicp).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Protocol for querying mechanisms determinacy. Only meaningful for mechanisms whose primary purpose is parsing.']).
 
 	:- public(deterministic/0).
@@ -1085,9 +1088,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(entity)).
 
 	:- info([
-		version is 2.1,
+		version is 2:1:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2019/09/04,
+		date is 2020-03-03,
 		comment is 'Common predicates for all mechanisms.']).
 
 	:- public(accept/2).
@@ -1308,9 +1311,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Specify a language using a Prolog predicate.']).
 
 	:- uses(word, [word_alphabet/2]).
@@ -1354,9 +1357,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Metaclass of re.']).
 
 	:- public(new/2).
@@ -1378,9 +1381,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.1,
+		version is 2:1:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2013/12/30,
+		date is 2020-03-03,
 		comment is 'Regular expressions.']).
 
 	:- public(expression/1).
@@ -1727,9 +1730,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Metaclass of fa.']).
 
 	:- public(new/4).
@@ -1756,9 +1759,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Finite Automata.']).
 
 	:- public(initial/1).
@@ -2328,9 +2331,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.1,
+		version is 2:1:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2018/06/01,
+		date is 2020-03-03,
 		comment is 'Metaclass of cfg.']).
 
 	:- public(new/3).
@@ -2355,9 +2358,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.1,
+		version is 2:1:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2018/06/01,
+		date is 2020-03-03,
 		comment is 'Context Free Grammars.']).
 
 	:- public(start_symbol/1).
@@ -2850,9 +2853,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Metaclass of pda.']).
 
 	:- public(new/5).
@@ -2879,9 +2882,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Pushdown automata.']).
 
 	:- public(initial/1).
@@ -3258,9 +3261,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(class)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Metaclass of tm.']).
 
 	:- public(new/4).
@@ -3287,9 +3290,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Turing machines.']).
 
 	:- public(initial/1).
@@ -3628,9 +3631,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(alphabet)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Alphabet represented as a parametric object.',
 		parnames is ['Expression']]).
 
@@ -3645,9 +3648,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(alphabet)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Alphabet represented as a parametric object.',
 		parnames is ['Id', 'Expression']]).
 
@@ -3662,9 +3665,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(order)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Total order over an alphabet represented as a parametric object.',
 		parnames is ['Alphabet', 'Sequence']]).
 
@@ -3682,9 +3685,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(order)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Total order over an alphabet represented as a parametric object.',
 		parnames is ['Id', 'Alphabet', 'Sequence']]).
 
@@ -3702,9 +3705,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(language)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Language represented as a parametric object.',
 		parnames is ['Alphabet', 'Positives', 'Negatives']]).
 
@@ -3729,9 +3732,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(language)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Language represented as a parametric object.',
 		parnames is ['Id', 'Alphabet', 'Positives', 'Negatives']]).
 
@@ -3756,9 +3759,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(re)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Regular expression represented as a parametric object.',
 		parnames is ['Expression']]).
 
@@ -3773,9 +3776,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(re)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Regular expression represented as a parametric object.',
 		parnames is ['Id', 'Expression']]).
 
@@ -3790,9 +3793,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(fa)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Finite automata represented as a parametric object.',
 		parnames is ['Initial', 'Transitions', 'Finals']]).
 
@@ -3813,9 +3816,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(fa)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Finite automata represented as a parametric object.',
 		parnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
 
@@ -3836,9 +3839,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(cfg)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Context-free grammar represented as a parametric object.',
 		parnames is ['StartSymbol', 'Rules']]).
 
@@ -3856,9 +3859,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(cfg)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Context-free grammar represented as a parametric object.',
 		parnames is ['Id', 'StartSymbol', 'Rules']]).
 
@@ -3876,9 +3879,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(pda)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Pushdown automaton represented as a parametric object.',
 		parnames is ['Initial', 'InitialStackSymbol', 'Transitions', 'Finals']]).
 
@@ -3902,9 +3905,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(pda)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Pushdown automaton represented as a parametric object.',
 		parnames is ['Id', 'Initial', 'InitialStackSymbol', 'Transitions', 'Finals']]).
 
@@ -3928,9 +3931,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(tm)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Turing machine represented as a parametric object.',
 		parnames is ['Initial', 'Transitions', 'Finals']]).
 
@@ -3951,9 +3954,9 @@ RE, MIX. MIX is yet to be implemented.
 	instantiates(tm)).
 
 	:- info([
-		version is 2.0,
+		version is 2:0:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2009/08/15,
+		date is 2020-03-03,
 		comment is 'Turing machine represented as a parametric object.',
 		parnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
 
