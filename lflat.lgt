@@ -3627,346 +3627,308 @@ RE, MIX. MIX is yet to be implemented.
 
 % PARAMETRIC OBJECTS
 
-:- object(alphabet(_Expression),
+:- object(alphabet(_Expression_),
 	instantiates(alphabet)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Alphabet represented as a parametric object.',
 		parnames is ['Expression']]).
 
-	expression(Expression) :-
-		parameter(1, Expression).
+	expression(_Expression_).
 
 :- end_object.
 
 
 
-:- object(alphabet(_Id, _Expression),
+:- object(alphabet(_Id, _Expression_),
 	instantiates(alphabet)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Alphabet represented as a parametric object.',
 		parnames is ['Id', 'Expression']]).
 
-	expression(Expression) :-
-		parameter(2, Expression).
+	expression(_Expression_).
 
 :- end_object.
 
 
 
-:- object(order(_Alphabet, _Sequence),
+:- object(order(_Alphabet_, _Sequence_),
 	instantiates(order)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Total order over an alphabet represented as a parametric object.',
 		parnames is ['Alphabet', 'Sequence']]).
 
-	alphabet(Expression) :-
-		parameter(1, Expression).
+	alphabet(_Alphabet_).
 
-	sequence(Sequence) :-
-		parameter(2, Sequence).
+	sequence(_Sequence_).
 
 :- end_object.
 
 
 
-:- object(order(_Id, _Alphabet, _Sequence),
+:- object(order(_Id, _Alphabet_, _Sequence_),
 	instantiates(order)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Total order over an alphabet represented as a parametric object.',
 		parnames is ['Id', 'Alphabet', 'Sequence']]).
 
-	alphabet(Expression) :-
-		parameter(2, Expression).
+	alphabet(_Alphabet_).
 
-	sequence(Sequence) :-
-		parameter(3, Sequence).
+	sequence(_Sequence_).
 
 :- end_object.
 
 
 
-:- object(language(_Alphabet, _Positives, _Negatives),
+:- object(language(_Alphabet_, _Positives_, _Negatives_),
 	instantiates(language)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Language represented as a parametric object.',
 		parnames is ['Alphabet', 'Positives', 'Negatives']]).
 
 	:- uses(list, [member/2]).
 
-	alphabet(Alphabet) :-
-		parameter(1, Alphabet).
+	alphabet(_Alphabet_).
 
 	positive(Positive) :-
-		parameter(2, Positives),
-		member(Positive, Positives).
+		member(Positive, _Positives_).
 
 	negative(Negative) :-
-		parameter(3, Negatives),
-		member(Negative, Negatives).
+		member(Negative, _Negatives_).
 
 :- end_object.
 
 
 
-:- object(language(_Id, _Alphabet, _Positives, _Negatives),
+:- object(language(_Id, _Alphabet_, _Positives_, _Negatives_),
 	instantiates(language)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Language represented as a parametric object.',
 		parnames is ['Id', 'Alphabet', 'Positives', 'Negatives']]).
 
 	:- uses(list, [member/2]).
 
-	alphabet(Alphabet) :-
-		parameter(2, Alphabet).
+	alphabet(_Alphabet_).
 
 	positive(Positive) :-
-		parameter(3, Positives),
-		member(Positive, Positives).
+		member(Positive, _Positives_).
 
 	negative(Negative) :-
-		parameter(4, Negatives),
-		member(Negative, Negatives).
+		member(Negative, _Negatives_).
 
 :- end_object.
 
 
 
-:- object(re(_Expression),
+:- object(re(_Expression_),
 	instantiates(re)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Regular expression represented as a parametric object.',
 		parnames is ['Expression']]).
 
-	expression(Expression) :-
-		parameter(1, Expression).
+	expression(_Expression_).
 
 :- end_object.
 
 
 
-:- object(re(_Id, _Expression),
+:- object(re(_Id, _Expression_),
 	instantiates(re)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Regular expression represented as a parametric object.',
 		parnames is ['Id', 'Expression']]).
 
-	expression(Expression) :-
-		parameter(2, Expression).
+	expression(_Expression_).
 
 :- end_object.
 
 
 
-:- object(fa(_Initial, _Transitions, _Finals),
+:- object(fa(_Initial_, _Transitions_, _Finals_),
 	instantiates(fa)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Finite automata represented as a parametric object.',
 		parnames is ['Initial', 'Transitions', 'Finals']]).
 
-	initial(Initial) :-
-		parameter(1, Initial).
+	initial(_Initial_).
 
-	transitions(Transitions) :-
-		parameter(2, Transitions).
+	transitions(_Transitions_).
 
-	finals(Finals) :-
-		parameter(3, Finals).
+	finals(_Finals_).
 
 :- end_object.
 
 
 
-:- object(fa(_Id, _Initial, _Transitions, _Finals),
+:- object(fa(_Id, _Initial_, _Transitions_, _Finals_),
 	instantiates(fa)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Finite automata represented as a parametric object.',
 		parnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
 
-	initial(Initial) :-
-		parameter(2, Initial).
+	initial(_Initial_).
 
-	transitions(Transitions) :-
-		parameter(3, Transitions).
+	transitions(_Transitions_).
 
-	finals(Finals) :-
-		parameter(4, Finals).
+	finals(_Finals_).
 
 :- end_object.
 
 
 
-:- object(cfg(_StartSymbol, _Rules),
+:- object(cfg(_StartSymbol_, _Rules_),
 	instantiates(cfg)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Context-free grammar represented as a parametric object.',
 		parnames is ['StartSymbol', 'Rules']]).
 
-	start_symbol(StartSymbol) :-
-		parameter(1, StartSymbol).
+	start_symbol(_StartSymbol_).
 
-	rules(Rules) :-
-		parameter(2, Rules).
+	rules(_Rules_).
 
 :- end_object.
 
 
 
-:- object(cfg(_Id, _StartSymbol, _Rules),
+:- object(cfg(_Id, _StartSymbol_, _Rules_),
 	instantiates(cfg)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Context-free grammar represented as a parametric object.',
 		parnames is ['Id', 'StartSymbol', 'Rules']]).
 
-	start_symbol(StartSymbol) :-
-		parameter(2, StartSymbol).
+	start_symbol(_StartSymbol_).
 
-	rules(Rules) :-
-		parameter(3, Rules).
+	rules(_Rules_).
 
 :- end_object.
 
 
 
-:- object(pda(_Initial, _InitialStackSymbol, _Transitions, _Finals),
+:- object(pda(_Initial_, _InitialStackSymbol_, _Transitions_, _Finals_),
 	instantiates(pda)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Pushdown automaton represented as a parametric object.',
 		parnames is ['Initial', 'InitialStackSymbol', 'Transitions', 'Finals']]).
 
-	initial(Initial) :-
-		parameter(1, Initial).
+	initial(_Initial_).
 
-	initial_stack_symbol(InitialStackSymbol) :-
-		parameter(2, InitialStackSymbol).
+	initial_stack_symbol(_InitialStackSymbol_).
 
-	transitions(Transitions) :-
-		parameter(3, Transitions).
+	transitions(_Transitions_).
 
-	finals(Finals) :-
-		parameter(4, Finals).
+	finals(_Finals_).
 
 :- end_object.
 
 
 
-:- object(pda(_Id, _Initial, _InitialStackSymbol, _Transitions, _Finals),
+:- object(pda(_Id, _Initial_, _InitialStackSymbol_, _Transitions_, _Finals_),
 	instantiates(pda)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Pushdown automaton represented as a parametric object.',
 		parnames is ['Id', 'Initial', 'InitialStackSymbol', 'Transitions', 'Finals']]).
 
-	initial(Initial) :-
-		parameter(2, Initial).
+	initial(_Initial_).
 
-	initial_stack_symbol(InitialStackSymbol) :-
-		parameter(3, InitialStackSymbol).
+	initial_stack_symbol(_InitialStackSymbol_).
 
-	transitions(Transitions) :-
-		parameter(4, Transitions).
+	transitions(_Transitions_).
 
-	finals(Finals) :-
-		parameter(5, Finals).
+	finals(_Finals_).
 
 :- end_object.
 
 
 
-:- object(tm(_Initial, _Transitions, _Finals),
+:- object(tm(_Initial_, _Transitions_, _Finals_),
 	instantiates(tm)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Turing machine represented as a parametric object.',
 		parnames is ['Initial', 'Transitions', 'Finals']]).
 
-	initial(Initial) :-
-		parameter(1, Initial).
+	initial(_Initial_).
 
-	transitions(Transitions) :-
-		parameter(2, Transitions).
+	transitions(_Transitions_).
 
-	finals(Finals) :-
-		parameter(3, Finals).
+	finals(_Finals_).
 
 :- end_object.
 
 
 
-:- object(tm(_Id, _Initial, _Transitions, _Finals),
+:- object(tm(_Id, _Initial_, _Transitions_, _Finals_),
 	instantiates(tm)).
 
 	:- info([
-		version is 2:0:1,
+		version is 2:0:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2020-03-04,
 		comment is 'Turing machine represented as a parametric object.',
 		parnames is ['Id', 'Initial', 'Transitions', 'Finals']]).
 
-	initial(Initial) :-
-		parameter(2, Initial).
+	initial(_Initial_).
 
-	transitions(Transitions) :-
-		parameter(3, Transitions).
+	transitions(_Transitions_).
 
-	finals(Finals) :-
-		parameter(4, Finals).
+	finals(_Finals_).
 
 :- end_object.
