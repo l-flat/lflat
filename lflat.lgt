@@ -226,8 +226,8 @@ RE, MIX. MIX is yet to be implemented.
 		argnames is ['Examples']]).
 
 	banner :-
-		write('L-FLAT 2.0 - the Logtalk Formal Language and Automata Toolkit'), nl,
-		write('Copyright (c) 2005-2009 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl, nl.
+		write('L-FLAT 2.1 - the Logtalk Formal Language and Automata Toolkit'), nl,
+		write('Copyright (c) 2005-2021 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl, nl.
 
 	run_example(Example) :-
 		logtalk_load(lflat_examples(Example), [hook(hook)]).
@@ -1381,9 +1381,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2:1:1,
+		version is 2:1:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2021-02-05,
 		comment is 'Regular expressions.']).
 
 	:- public(expression/1).
@@ -1530,10 +1530,8 @@ RE, MIX. MIX is yet to be implemented.
 		instantiates_class(RE, re),
 		!,
 		RE::expression(Expression).
-	action(config([(RE1 + RE2)| Stack], Done, Input), config([R| Stack], Done, Input)) :-
-		(	R = RE1
-		;	R = RE2
-		).
+	action(config([(RE1 + _)| Stack], Done, Input), config([RE1| Stack], Done, Input)).
+	action(config([(_ + RE2)| Stack], Done, Input), config([RE2| Stack], Done, Input)).
 	action(config([(RE1 * RE2)| Stack], Done, Input), config([RE1, RE2| Stack], Done, Input)).
 	action(config([(_^*)| Stack], Done, Input), config(Stack, Done, Input)).
 	action(config([(RE1^*)| Stack], Done, Input), config([RE1, (RE1^*)| Stack], Done, Input)).

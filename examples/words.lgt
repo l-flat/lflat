@@ -97,9 +97,10 @@
 		write(Word), nl, nl.
 
 	test3 :-
-		(	test3x
-		; 	nl
-		).
+		test3x.
+	test3 :-
+		nl.
+
 	test3x :-
 		write('** Some words over the alphabet bits:'), nl,
 		word::word_alphabet(Word, bits),
