@@ -1,16 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%																%
+%                                                               %
 % lflat.lgt - the Logtalk Formal Language and Automata Toolkit	%
-%																%
+%                                                               %
 %  - Artur Miguel Dias                                          %
-%	(CITI, Depart. de Informatica, Univ. Nova de Lisboa)		%
+%	(CITI, Depart. de Informatica, Univ. Nova de Lisboa)        %
 %  - Paulo Moura                                                %
 %	(CRACS, INESC Porto)                                        %
 %  - Michel Wermelinger                                         %
 %	(Computing Department, The Open University)                 %
 %                                                               %
-% L-FLAT, version 2.0.1                                         %
-% 03/Mar/2020                                                   %
+% L-FLAT, version 2.0.2                                         %
+% 05/Feb/2021                                                   %
 %                                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -18,6 +18,9 @@
 
 /*
 Changelog (sumary):
+
+05/Feb/2021 -- L-FLAT version 2.0.2 (Paulo Moura, A. Miguel Dias)
+	* Fix linter warnings.
 
 03/Mar/2020 -- L-FLAT version 2.0.1 (Paulo Moura, A. Miguel Dias)
 	* Update for Logtalk 3.36.0, which is now the minimum version required.
@@ -28,43 +31,43 @@ Changelog (sumary):
 	  will be easier due to the advantages of Logtalk.
 
 25/Mar/2007 -- P-FLAT version 1.7 (A. Miguel Dias)
-    * Made the application more conformant to the ISO Prolog standard.
+	* Made the application more conformant to the ISO Prolog standard.
 
 05/Jul/2006 -- P-FLAT version 1.6 (A. Miguel Dias)
-    * Introduced support for automated contexts using Mooshak, the programming
+	* Introduced support for automated contexts using Mooshak, the programming
 	  contests management system.
 
 10/Mar/2006 -- P-FLAT version 1.5 (A. Miguel Dias)
-    * Introduced "overloaded operations", operations that are universal,
-      each kind of entity supplying its own implementation. As now
-      the overloaded operations are:
-        alpha/2, show/1, accept/2, accept/3, word/2, tracing/2.
-    * Introduced "generic predicates" that implement generic algorithms
-      applicable to all kinds of entities. Some types of entities use
-      the generic predicates, some others provide more efficient
-      customised implementations. As now the generic predicates are:
-        generic_accept/3, generic_accept/2, generic_tracing/2,
-        generic_word/2.
-    * Tracing was completely revised and is now available to all the
-      mechanisms: PREDs, REs, FAs, CFGs, PDAs and TMs
-    * accept/2 and accept/3 can now handle non-deterministic mechanisms,
-      with the help of the breath-first strategy. Loop detection is
-      also implemented to allow some endless executions paths to be
-      pruned: this helps when trying to reject words and also improves
-      eficiency. accept/2 and accept/3 are semi-algorithms.
-    * Now show/1 presents more information, e.g. whether a mechanism is
-      deterministic.
-    * Introduced the auxiliary predicate cfg_valid_config/2 to help
-      reducing the combinatorial explosion in the breath-first
-      generation of new configurations. This concerns CFGs only.
-    * The predicates enter/0, execute/1 and execute/3 were promoted
-      from the file "tutorial.pl" to the main source code file of
-      P-FLAT. They are very useful to write P-FLAT scripts, and from
-      now on, the "script" will be considered an important concept
-      in P-FLAT.
-    
+	* Introduced "overloaded operations", operations that are universal,
+	  each kind of entity supplying its own implementation. As now
+	  the overloaded operations are:
+	    alpha/2, show/1, accept/2, accept/3, word/2, tracing/2.
+	* Introduced "generic predicates" that implement generic algorithms
+	  applicable to all kinds of entities. Some types of entities use
+	  the generic predicates, some others provide more efficient
+	  customised implementations. As now the generic predicates are:
+	    generic_accept/3, generic_accept/2, generic_tracing/2,
+	    generic_word/2.
+	* Tracing was completely revised and is now available to all the
+	  mechanisms: PREDs, REs, FAs, CFGs, PDAs and TMs
+	* accept/2 and accept/3 can now handle non-deterministic mechanisms,
+	  with the help of the breath-first strategy. Loop detection is
+	  also implemented to allow some endless executions paths to be
+	  pruned: this helps when trying to reject words and also improves
+	  eficiency. accept/2 and accept/3 are semi-algorithms.
+	* Now show/1 presents more information, e.g. whether a mechanism is
+	  deterministic.
+	* Introduced the auxiliary predicate cfg_valid_config/2 to help
+	  reducing the combinatorial explosion in the breath-first
+	  generation of new configurations. This concerns CFGs only.
+	* The predicates enter/0, execute/1 and execute/3 were promoted
+	  from the file "tutorial.pl" to the main source code file of
+	  P-FLAT. They are very useful to write P-FLAT scripts, and from
+	  now on, the "script" will be considered an important concept
+	  in P-FLAT.
+
 30/Jun/2005 -- P-FLAT version 1.0 (Michel Wermelinger, A. Miguel Dias)
-    * Initial release, corresponding to the ITiCSE'2005 paper.
+	* Initial release, corresponding to the ITiCSE'2005 paper.
 */
 
 
@@ -226,7 +229,7 @@ RE, MIX. MIX is yet to be implemented.
 		argnames is ['Examples']]).
 
 	banner :-
-		write('L-FLAT 2.1 - the Logtalk Formal Language and Automata Toolkit'), nl,
+		write('L-FLAT 2.0.2 - the Logtalk Formal Language and Automata Toolkit'), nl,
 		write('Copyright (c) 2005-2021 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl, nl.
 
 	run_example(Example) :-
