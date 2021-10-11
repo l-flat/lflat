@@ -14,7 +14,7 @@ chmod 744 ${MOOSHAK_LFLAT_HOME}*.sh
 
 cat > ${MOOSHAK_HOME}logtalk/settings.lgt << EOF
 :- initialization((
-	assertz(logtalk_library_path(lflat_home, '${LFLAT_HOME}')),
+	assertz(logtalk_library_path(lflat, '${LFLAT_HOME}')),
 	set_logtalk_flag(startup_message, banner),
 	set_logtalk_flag(report, off),
 	set_logtalk_flag(altdirs, off),
