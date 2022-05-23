@@ -9,8 +9,8 @@
 %  - Michel Wermelinger                                         %
 %	(Computing Department, The Open University)                 %
 %                                                               %
-% L-FLAT, version 2.1.0                                         %
-% 11/Oct/2021                                                   %
+% L-FLAT, version 2.1.1                                         %
+% 23/May/2022                                                   %
 %                                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -18,6 +18,9 @@
 
 /*
 Changelog (sumary):
+
+23/May/2022 -- L-FLAT version 2.1.1 (Paulo Moura, A. Miguel Dias)
+	* Fix linter warning.
 
 11/Oct/2021 -- L-FLAT version 2.1.0 (Paulo Moura, A. Miguel Dias)
 	* Don't use a settings file to simplify making L-FLAT avaialble as a pack.
@@ -125,9 +128,9 @@ RE, MIX. MIX is yet to be implemented.
 :- object(modes).
 
 	:- info([
-		version is 2:1:0,
+		version is 2:1:1,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2021-10-11,
+		date is 2021-05-23,
 		comment is 'Flags defining application modes for warning and error reporting.']).
 
 	:- public(set_warning_mode/1).
@@ -296,7 +299,7 @@ RE, MIX. MIX is yet to be implemented.
 
 	execute(G, R, S) :-
 		write('?- '), write(G), write('.'), nl, call(G),
-		(	R = none ->
+		(	R == none ->
 			true
 		;	write(R), write(' ;'), nl
 		),
