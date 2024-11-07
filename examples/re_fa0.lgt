@@ -24,14 +24,14 @@
 
 
 
-:- object(aRE,
+:- object(aRE2,
 	instantiates(re)).
 
 	:- initialization((
 		write('*** Simple regular expression ***'), nl,
 		::show,
 		::diagnostics,
-		aL::test_mechanism(aRE),
+		aL::test_mechanism(aRE2),
 
 		write('*** Simplify RE ***'), nl,
 		::simplify(SRE),

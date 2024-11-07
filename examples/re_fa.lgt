@@ -4,7 +4,7 @@
 % The starting point of these examples is the second RE of slide 100,
 %  but the actual manipulations performed in this file are not in the slides.
 
-:- object(p100L,
+:- object(p100L2,
 	instantiates(language)).
 
 	:- initialization((
@@ -34,56 +34,56 @@
 
 
 
-:- object(p100RE,
+:- object(p100RE2,
 	instantiates(re)).
 
 	:- initialization((
 		write('*** Second regular expression of slide 100 ***'), nl,
 		::show,
 		::diagnostics,
-		p100L::test_mechanism(p100RE),
+		p100L2::test_mechanism(p100RE2),
 
 		write('*** Simplify RE ***'), nl,
 		::simplify(SRE),
 		SRE::show,
 		SRE::diagnostics,
-		p100L::test_mechanism(SRE),
+		p100L2::test_mechanism(SRE),
 
 		write('*** Convert RE to non-deterministic finite automata ***'), nl,
 		::fa(P100FA),
 		P100FA::show,
 %		P100FA::diagnostics,
-		p100L::test_mechanism(P100FA),
+		p100L2::test_mechanism(P100FA),
 
 		write('*** Convert finite automata into a deterministic one ***'), nl,
 		P100FA::determine(P100FAD),
 		P100FAD::show,
 %		P100FAD::diagnostics,
-		p100L::test_mechanism(P100FAD),
+		p100L2::test_mechanism(P100FAD),
 
 		write('*** Rename the states of a finite automata ***'), nl,
 		P100FAD::rename(P100FADR),
 		P100FADR::show,
 %		P100FAD::diagnostics,
-		p100L::test_mechanism(P100FADR),
+		p100L2::test_mechanism(P100FADR),
 
 		write('*** Minimize a finite automata ***'), nl,
 		P100FADR::minimize(P100FAM),
 		P100FAM::show,
 %		P100FAD::diagnostics,
-		p100L::test_mechanism(P100FAM),
+		p100L2::test_mechanism(P100FAM),
 
 		write('*** Rename again the states of a finite automata ***'), nl,
 		P100FAM::rename(P100FAMR),
 		P100FAMR::show,
 %		P100FAMR::diagnostics,
-		p100L::test_mechanism(P100FAMR),
+		p100L2::test_mechanism(P100FAMR),
 
 		write('*** Convert FA  back to RE. The result is complex ***'), nl,
 		P100FAMR::re(P100RE2),
 		P100RE2::show,
 %		P100RE2::diagnostics,
-		p100L::test_mechanism(P100RE2)
+		p100L2::test_mechanism(P100RE2)
 
 /*
 		write('*** Convert RE to composite language ***'), nl,

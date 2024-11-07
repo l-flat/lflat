@@ -1,5 +1,5 @@
 
-:- object(bits,
+:- object(bits2,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -13,7 +13,7 @@
 
 
 
-:- object(decimal,
+:- object(decimal2,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -21,13 +21,13 @@
 		::diagnostics
 	)).
 
-	expression(bits + [2,3,4,5,6,7,8,9]).
+	expression(bits2 + [2,3,4,5,6,7,8,9]).
 
 :- end_object.
 
 
 
-:- object(hex,
+:- object(hex2,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -35,13 +35,13 @@
 		::diagnostics
 	)).
 
-	expression(decimal + [a,b,c,d,e,f]).
+	expression(decimal2 + [a,b,c,d,e,f]).
 
 :- end_object.
 
 
 
-:- object(letters,
+:- object(letters2,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -49,7 +49,7 @@
 		::diagnostics
 	)).
 
-	expression(hex - decimal).
+	expression(hex2 - decimal2).
 
 :- end_object.
 
@@ -63,7 +63,7 @@
 		::diagnostics
 	)).
 
-	alphabet(bits).
+	alphabet(bits2).
 
 	sequence([0,1]).
 
@@ -87,8 +87,8 @@
    )).
 
 	test1 :-
-		write('** Symbols of hex:'), nl,
-		hex::symbols(Symbols),
+		write('** Symbols of hex2:'), nl,
+		hex2::symbols(Symbols),
 		write(Symbols), nl, nl.
 
 	test2 :-
@@ -102,8 +102,8 @@
 		nl.
 
 	test3x :-
-		write('** Some words over the alphabet bits:'), nl,
-		word::word_alphabet(Word, bits),
+		write('** Some words over the alphabet bits2:'), nl,
+		word::word_alphabet(Word, bits2),
 		write(Word), nl,
 		list::length(Word, N),
 		(	N > 4 ->

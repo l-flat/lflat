@@ -1,5 +1,5 @@
 
-:- object(bits,
+:- object(bits1,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -13,7 +13,7 @@
 
 
 
-:- object(decimal,
+:- object(decimal1,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -21,13 +21,13 @@
 		::diagnostics
 	)).
 
-	expression(bits + [2,3,4,5,6,7,8,9]).
+	expression(bits1 + [2,3,4,5,6,7,8,9]).
 
 :- end_object.
 
 
 
-:- object(hex,
+:- object(hex1,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -35,13 +35,13 @@
 		::diagnostics
 	)).
 
-	expression(decimal + [a,b,c,d,e,f]).
+	expression(decimal1 + [a,b,c,d,e,f]).
 
 :- end_object.
 
 
 
-:- object(letters,
+:- object(letters1,
 	instantiates(alphabet)).
 
 	:- initialization((
@@ -49,6 +49,6 @@
 		::diagnostics
 	)).
 
-	expression(hex - decimal).
+	expression(hex1 - decimal1).
 
 :- end_object.

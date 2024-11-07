@@ -19,6 +19,8 @@
 /*
 Changelog (sumary):
 
+	* Fix name conflicts when loading all the examples.
+
 23/May/2022 -- L-FLAT version 2.1.1 (Paulo Moura, A. Miguel Dias)
 	* Fix linter warning.
 

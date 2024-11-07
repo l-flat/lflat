@@ -1,5 +1,5 @@
 
-:- object(p100L,
+:- object(p100L1,
 	instantiates(language)).
 
 	:- initialization((
@@ -29,7 +29,7 @@
 
 
 
-:- object(aRE,
+:- object(aRE1,
 	instantiates(re)).
 
 	:- initialization((
@@ -44,7 +44,7 @@
 
 
 
-:- object(p100RE,
+:- object(p100RE1,
 	instantiates(re)).
 
 	:- initialization((
@@ -52,9 +52,9 @@
 		write('*** Second regular expression of slide 100 ***'), nl,
 		::show,
 		::diagnostics,
-		p100L::test_mechanism(p100RE)
+		p100L1::test_mechanism(p100RE1)
 	)).
 
-	expression((aRE + b * a^* * b)^*).
+	expression((aRE1 + b * a^* * b)^*).
 
 :- end_object.

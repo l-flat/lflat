@@ -33,13 +33,13 @@
 
 
 
-:- object(evenP,			% Predicate for evenL
+:- object(evenP2,			% Predicate for evenL
 	instantiates(predicate)).
 
 	:- initialization((
 		::show,
 		::diagnostics,
-		evenL::test_mechanism(evenP),
+		evenL::test_mechanism(evenP2),
 		nl, nl
  
 	)).
