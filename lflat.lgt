@@ -9,8 +9,8 @@
 %  - Michel Wermelinger                                         %
 %	(Computing Department, The Open University)                 %
 %                                                               %
-% L-FLAT, version 2.1.1                                         %
-% 23/May/2022                                                   %
+% L-FLAT, version 2.1.2                                         %
+% 07/November/2024                                              %
 %                                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -19,8 +19,11 @@
 /*
 Changelog (sumary):
 
+07/November/2024 -- L-FLAT version 2.1.2 (Paulo Moura, A. Miguel Dias)
+	* Update for Logtalk 3.57.0, which is now the minimum version required.
 	* Fix loading of the gensym library.
 	* Fix name conflicts when loading all the examples.
+	* Fix reference to non-existant and unused predicate.
 
 23/May/2022 -- L-FLAT version 2.1.1 (Paulo Moura, A. Miguel Dias)
 	* Fix linter warning.
@@ -215,9 +218,9 @@ RE, MIX. MIX is yet to be implemented.
 :- object(interaction).
 
 	:- info([
-		version is 2:1:0,
+		version is 2:1:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2024-11-07,
 		comment is 'Predicates for command-line user interaction.']).
 
 	:- public(banner/0).
@@ -238,8 +241,8 @@ RE, MIX. MIX is yet to be implemented.
 		argnames is ['Examples']]).
 
 	banner :-
-		write('L-FLAT 2.1.0 - the Logtalk Formal Language and Automata Toolkit'), nl,
-		write('Copyright (c) 2005-2021 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl, nl.
+		write('L-FLAT 2.1.2 - the Logtalk Formal Language and Automata Toolkit'), nl,
+		write('Copyright (c) 2005-2024 Artur Miguel Dias, Paulo Moura, Michel Wermelinger'), nl, nl.
 
 	run_example(Example) :-
 		logtalk_load(lflat_examples(Example), [hook(hook)]).
@@ -2368,9 +2371,9 @@ RE, MIX. MIX is yet to be implemented.
 	specializes(mechanism)).
 
 	:- info([
-		version is 2:1:1,
+		version is 2:1:2,
 		author is 'Artur Miguel Dias, Paulo Moura, and Michel Wermelinger',
-		date is 2020-03-03,
+		date is 2024-11-07,
 		comment is 'Context Free Grammars.']).
 
 	:- public(start_symbol/1).
@@ -2441,7 +2444,7 @@ RE, MIX. MIX is yet to be implemented.
 
 	:- uses(term_classification, [is_symbol/1]).
 	:- uses(list, [member/2, length/2, append/3, reverse/2, select/3, sort/2, valid/1::is_list/1]).
-	:- uses(set, [valid/1::is_set/1, union/3, difference/3, subtract/3]).
+	:- uses(set, [valid/1::is_set/1, union/3, subtract/3]).
 	:- uses(gensym, [gensym/2]).
 
 	% CONTEXT FREE GRAMMARS can be defined using terms of the form
