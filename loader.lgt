@@ -6,7 +6,7 @@
 	% load Logtalk libraries used by L-FLAT:
 	logtalk_load(types(loader)),
 	logtalk_load(sets(loader)),
-	logtalk_load(gensym(gensym)),
+	logtalk_load(gensym(loader)),
 	logtalk_load(roots(loader)),
 	% load L-FLAT itself:
 	logtalk_load(lflat, [unknown_entities(silent), optimize(on)]),
